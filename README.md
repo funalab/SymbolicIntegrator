@@ -62,7 +62,7 @@ We developed following eight learning models for symbolic integration that were 
      To verify the accuracy of the learned model using test data in `SymbolicIntegrationModel/LSTM_string/dataset/LSTM_string_Polish_test_Integrand.txt`, run the following:
    
      ```sh
-     % cd ./SymbolicIntegrationModel/LSTM_string/src
+     % cd LSTM_string/src
      % python LSTM_string_polish_model.py --gpu 0 --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_Polish_test_Integrand.txt --Primitive_dataset ../dataset/LSTM_string_Polish_test_Primitive.txt --study_name MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid --learned_model ../models/LSTM_string_polish_best_model
      ```
 
@@ -72,7 +72,7 @@ We developed following eight learning models for symbolic integration that were 
      To verify the accuracy of the learned model using test data in `SymbolicIntegrationModel/LSTM_string/dataset/LSTM_string_IRPP_test_Integrand.txt`, run the following:
 
      ```sh
-     % cd ./SymbolicIntegrationModel/LSTM_string/src
+     % cd LSTM_string/src
      % python LSTM_string_IRPP_model.py --gpu 0 --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_IRPP_test_Integrand.txt --Primitive_dataset ../dataset/LSTM_string_IRPP_test_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_integrand_reverse_polish_Primitive_polish_third_try_memory_edited_v102_continue_untilepoch200 --learned_model ../models/LSTM_string_IRPP_best_model
      ```
 
@@ -82,7 +82,7 @@ We developed following eight learning models for symbolic integration that were 
      To verify the accuracy of the learned model using test data in `SymbolicIntegrationModel/LSTM_subtree/dataset/LSTM_subtree_polish_test_Integrand.txt`, run the following:
 
      ```sh
-     % cd ./SymbolicIntegrationModel/LSTM_subtree/src
+     % cd LSTM_subtree/src
      % python LSTM_subtree_model.py --gpu 0 --token_dataset ../dataset/LSTM_subtree_polish_token.txt --Integrand_dataset ../dataset/LSTM_subtree_polish_test_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_polish_test_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_complete_correct_continue --learned_model ../model/LSTM_subtree_polish_best_model 
      ```
 
@@ -92,7 +92,7 @@ We developed following eight learning models for symbolic integration that were 
      To verify the accuracy of the learned model using test data in `SymbolicIntegrationModel/LSTM_subtree/dataset/LSTM_subtree_IRPP_test_Integrand.txt`, run the following:
 
      ```sh
-     % cd ./SymbolicIntegrationModel/LSTM_subtree/src
+     % cd LSTM_subtree/src
      % python LSTM_subtree_model.py --gpu 0 --token_dataset ../dataset/LSTM_subtree_polish_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_test_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_test_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue.db --learned_model ../model/LSTM_subtree_IRPP_best_model
      ```
 
@@ -102,7 +102,7 @@ We developed following eight learning models for symbolic integration that were 
      To verify the accuracy of the learned model using test data in `SymbolicIntegrationModel/Transformer_string/dataset/Transformer_string_polish_test_Integrand.txt`, run the following:
 
      ```sh
-     % cd ./SymbolicIntegrationModel/Transformer_string/src
+     % cd Transformer_string/src
      % python Transformer_string_model.py --gpu 0 --source ../dataset/Transformer_string_polish_test_Integrand.txt --target ../dataset/Transformer_string_polish_test_Primitive.txt --source_vocab_list ../dataset/Transformer_string_polish_Integrand_vocab.pickle --target_vocab_list ../dataset/Transformer_string_polish_Primitive_vocab.pickle --learned_model ../model/Transformer_string_polish_best_model 
      ```
 
@@ -112,7 +112,7 @@ We developed following eight learning models for symbolic integration that were 
      To verify the accuracy of the learned model using test data in `SymbolicIntegrationModel/Transformer_string/dataset/Transformer_string_IRPP_test_Integrand.txt`, run the following:
  
      ```sh
-     % cd ./SymbolicIntegrationModel/Transformer_string/src
+     % cd Transformer_string/src
      % python Transformer_string_model.py --gpu 0 --source ../dataset/Transformer_string_IRPP_test_Integrand.txt --target ../dataset/Transformer_string_IRPP_test_Primitive.txt --source_vocab_list ../dataset/Transformer_string_IRPP_source_vocab.pickle --target_vocab_list ../dataset/Transformer_string_IRPP_target_vocab.pickle --learned_model ../model/Transformer_string_IRPP_best_model
      ```
 
@@ -122,7 +122,7 @@ We developed following eight learning models for symbolic integration that were 
      To verify the accuracy of the learned model using test data in `SymbolicIntegrationModel/Transformer_subtree/dataset/Transformer_subtree_polish_test_Integrand.txt`,run the following:
 
      ```sh
-     % cd ./SymbolicIntegrationModel/Transformer_subtree/src
+     % cd Transformer_subtree/src
      % python Transformer_subtree_model.py --gpu 0 --source ../dataset/Transformer_subtree_polish_test_Integrand.txt --target ../dataset/Transformer_subtree_polish_test_Primitive.txt --source_vocab_list ../dataset/Transformer_subtree_polish_Integrand_vocab.pickle --target_vocab_list ../dataset/Transformer_subtree_polish_Primitive_vocab.pickle --learned_model ../model/Transformer_subtree_polish_best_model
      ```
 
@@ -132,7 +132,7 @@ We developed following eight learning models for symbolic integration that were 
      To verify the accuracy of the learned model using test data in  `SymbolicIntegrationModel/Transformer_subtree/dataset/Transformer_subtree_IRPP_test_Integrand.txt`,run the following:
 
      ```sh
-     % cd ./SymbolicIntegrationModel/Transformer_subtree/src
+     % cd Transformer_subtree/src
      % python Transformer_subtree_model.py --gpu 0 --source ../dataset/Transformer_subtree_IRPP_test_Integrand.txt  --target ../dataset/Transformer_subtree_IRPP_test_Primitive.txt --source_vocab_list ../dataset/Transformer_subtree_IRPP_Integrand_vocab.pickle --target_vocab_list ../dataset/Transformer_subtree_IRPP_Primitive_vocab.pickle --learned_model ../model/Transformer_subtree_IRPP_best_model 
      ```
 
@@ -141,7 +141,7 @@ We developed following eight learning models for symbolic integration that were 
      To integrate the above eight models and perform inference, run the following:
 
      ```sh
-     % cd ./SymbolicIntegrationModel/Integrated_all_model
+     % cd Integrated_all_model
      % /bin/zsh run.sh ../LSTM_string/dataset/LSTM_string_Polish_test_Integrand.txt 
      ```
 
