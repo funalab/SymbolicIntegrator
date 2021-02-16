@@ -97,7 +97,9 @@ We developed eight learning models for symbolic integration that were combinatio
    % /bin/zsh run.sh ../LSTM_string/dataset/LSTM_string_Polish_test_Integrand.txt 
    ```
   
-   
+## Acknowledgement
 
 
-   
+## References
+[1] [https://github.com/soskek/attention_is_all_you_need](https://github.com/soskek/attention_is_all_you_need) Copyright (c) 2017, Sosuke Kobayashi All rights reserved.
+  
