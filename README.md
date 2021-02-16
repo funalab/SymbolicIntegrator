@@ -94,7 +94,7 @@ We developed eight learning models for symbolic integration that were combinatio
 
    ```sh
    % cd ./SymbolicIntegrationModel/Integrated_all_model
-   % /bin/zsh run.sh
+   % /bin/zsh run.sh ../LSTM_string/dataset/LSTM_string_Polish_test_Integrand.txt 
    ```
   
    
