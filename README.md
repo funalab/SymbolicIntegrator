@@ -95,7 +95,7 @@ We developed eight learning models for symbolic integration that were combinatio
    ```sh
    % cd ./SymbolicIntegrationModel/Integrated_all_model
    % /bin/zsh run.sh
-   ```sh
+   ```
   
    
 
