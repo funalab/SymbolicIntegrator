@@ -41,11 +41,17 @@ We developed following eight learning models for symbolic integration that were 
 
    - On Linux:
      ```sh
-     % wget 
+     % cd SymbolicIntegrationModel/
+     % wget https://fun.bio.keio.ac.jp/software/SymbolicIntegrationModel/SymbolicIntegrationModel.zip
+     % unzip SymbolicIntegrationModel.zip
+     % rm SymbolicIntegrationModel.zip
      ```
    - On macOS:
      ```sh
-     % curl
+     % cd SymbolicIntegrationModel/
+     % curl -O https://fun.bio.keio.ac.jp/software/SymbolicIntegrationModel/SymbolicIntegrationModel.zip
+     % unzip SymbolicIntegrationModel.zip
+     % rm SymbolicIntegrationModel.zip
      ```
 
 3. Inference on test dataset.
