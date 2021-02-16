@@ -1,0 +1,2 @@
+best_model_148 -> LSTM_string_polish_best_model
+MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid.db -> LSTM_string_polish_hyperparameter_datasbase.db
