@@ -1,0 +1,23 @@
+# MacOSX
+.DS_Store
+
+# Python
+__pycache__
+*.pyc
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# PyCharm
+.idea/
+
+# Output
+model
+models
+dataset
+*.txt
+*.zip
+*.log
