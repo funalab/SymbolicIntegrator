@@ -389,8 +389,10 @@ def objective(trial):
     trainer.extend(extensions.snapshot(filename='latest_snapshot'),trigger=(1, 'epoch'))
                                            
     trainer.run()
-    #mlp.to_gpu() if gpu is used 
-    mlp.to_cpu()
+    if GPU >= 0: 
+        mlp.to_gpu() #if gpu is used 
+    else:
+        mlp.to_cpu()
     loss = log_report_extention.log[-1]['validation/main/loss']
     count = 0 
     for source, target in valid:
@@ -477,6 +479,12 @@ def main():
     parser.add_argument('--learned_model', '-m',type=str, default='../model/LSTM_subtree_polish_best_model')
     args = parser.parse_args()
 
+    if args.gpu >=0:
+        global np
+        import cupy as np
+    global GPU
+    GPU = args.gpu
+    
     sys.path.append('../dataset/')
     sys.path.append('../model')
     
@@ -528,9 +536,10 @@ e        None
     np.random.seed(seed)
 
     test = data.sentence
-    
-    #mlp.to_gpu() if gpu is used 
-    mlp.to_cpu()
+    if GPU >= 0:
+        mlp.to_gpu() #if gpu is used 
+    else:
+        mlp.to_cpu()
     count = 0
     index_num = 0
     wrong_eq_list = []
