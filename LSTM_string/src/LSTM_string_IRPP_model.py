@@ -2,7 +2,8 @@ import chainer
 import chainer.links as L
 import chainer.functions as F
 import random
-import cupy as np
+#import cupy as np
+import numpy as np
 import codecs
 from chainer.training import extensions,triggers
 import pickle
@@ -318,10 +319,10 @@ def objective(trial):
             trial, 'validation/main/loss', (PRUNER_INTERVAL, 'epoch')))
                                         
     trainer.run()
-    #if GPU >= 0:
-    mlp.to_gpu()
-    #else:
-    #    mlp.to_cpu()
+    if GPU >= 0:
+        mlp.to_gpu()
+    else:
+        mlp.to_cpu()
         
     loss = log_report_extention.log[-1]['validation/main/loss']
     count = 0
@@ -409,8 +410,10 @@ def main():
     parser.add_argument('--learned_model', '-m',type=str, default='../models/LSTM_string_IRPP_best_model')
     args = parser.parse_args()
 
+    if args.gpu >=0:
+        global np
+        import cupy as np
     global GPU
-
     GPU = args.gpu   
         
     sys.path.append('../dataset/')
@@ -472,10 +475,10 @@ e        None
     #print("k_fold_for_train_valid:"+str(k_fold_for_train_valid))
     #valid = divide_train_and_validation[k_fold_for_train_valid][1]
 
-    #if GPU >= 0:
-    mlp.to_gpu()
-    #else:
-    #    mlp.to_cpu()
+    if GPU >= 0:
+        mlp.to_gpu()
+    else:
+        mlp.to_cpu()
     
     count = 0
     wrong_eq_list =[]

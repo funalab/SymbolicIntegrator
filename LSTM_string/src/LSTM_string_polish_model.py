@@ -2,8 +2,8 @@ import chainer
 import chainer.links as L
 import chainer.functions as F
 import random
-import cupy as np
-#import numpy as np
+#import cupy as np
+import numpy as np
 import codecs
 from chainer.training import extensions,triggers
 import pickle
@@ -319,9 +319,10 @@ def objective(trial):
             trial, 'validation/main/loss', (PRUNER_INTERVAL, 'epoch')))
                                         
     trainer.run()
-    #if GPU >= 0:
-    mlp.to_gpu()
-
+    if GPU >= 0:
+        mlp.to_gpu()
+    else:
+        mlp.to_cpu()
     loss = log_report_extention.log[-1]['validation/main/loss']
     count = 0
     for source, target in valid:
@@ -412,6 +413,9 @@ def main():
     sys.path.append('../dataset/')
     sys.path.append('../models')
 
+    if args.gpu >=0:
+        global np
+        import cupy as np
     global GPU
     GPU = args.gpu
         
@@ -471,8 +475,10 @@ e        None
     #print("k_fold_for_train_valid:"+str(k_fold_for_train_valid))
     #valid = divide_train_and_validation[k_fold_for_train_valid][1]
 
-    #if GPU >= 0:
-    mlp.to_gpu()
+    if GPU >= 0:
+        mlp.to_gpu()
+    else:
+        mlp.to_cpu()
     count = 0
     wrong_eq_list =[]
     index= 0
