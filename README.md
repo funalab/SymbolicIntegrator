@@ -93,7 +93,7 @@ We developed following eight learning models for symbolic integration that were 
 
      ```sh
      % cd LSTM_subtree/src
-     % python LSTM_subtree_model.py --gpu 0 --token_dataset ../dataset/LSTM_subtree_polish_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_test_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_test_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue.db --learned_model ../model/LSTM_subtree_IRPP_best_model
+     % python LSTM_subtree_model.py --gpu 0 --token_dataset ../dataset/LSTM_subtree_polish_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_test_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_test_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue --learned_model ../model/LSTM_subtree_IRPP_best_model
      ```
 
    - Transformer string polish model
