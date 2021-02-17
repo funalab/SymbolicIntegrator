@@ -56,7 +56,9 @@ We developed following eight learning models for symbolic integration that were 
 
 3. Inference on test dataset.
 
-   - LSTM string polish mode
+   To run LSTM models, follow the commands below after change directory.   
+
+   - LSTM string polish model
      
      The best learned model for LSTM string polish model is `SymbolicIntegrationModel/LSTM_string/models/LSTM_string_polish_best_model`.
      To verify the accuracy of the learned model using test data in `SymbolicIntegrationModel/LSTM_string/dataset/LSTM_string_Polish_test_Integrand.txt`, run the following:
@@ -96,16 +98,19 @@ We developed following eight learning models for symbolic integration that were 
      % python LSTM_subtree_model.py --token_dataset ../dataset/LSTM_subtree_polish_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_test_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_test_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue --learned_model ../model/LSTM_subtree_IRPP_best_model [--gpu gpu]
      ```
 
-   The following list of options will be displayed by adding -h option to the script for LSTM model.
+   The following list of options will be displayed by adding -h option to each script for LSTM models.
 
    ```
-    --Integrand_dataset                          : Specify Integrand data (text file).
-    --Primitive_dataset                          : Specify Primitive data (text file).
-    --token_dataset                              : Specify dictionary of mathematical symbols used in Integrand and Primitive data (text file).
-    --study_name                                 : Specify ???
-    --learned_model                              : Specify learned model (npz file).
-    --gpu GPU, -g GPU                            : Specify GPU ID (negative value indicates CPU).
-    ```
+   --Integrand_dataset                          : Specify Integrand data (text file).
+   --Primitive_dataset                          : Specify Primitive data (text file).
+   --token_dataset                              : Specify dictionary of mathematical symbols used in Integrand and Primitive data (text file).
+   --study_name                                 : Specify ???
+   --learned_model                              : Specify learned model (npz file).
+   --gpu GPU, -g GPU                            : Specify GPU ID (negative value indicates CPU).
+   ```
+
+
+   To run Transformer models, follow the commands below after change directory. 
 
    - Transformer string polish model
    
@@ -147,16 +152,16 @@ We developed following eight learning models for symbolic integration that were 
      % python Transformer_subtree_model.py --source ../dataset/Transformer_subtree_IRPP_test_Integrand.txt  --target ../dataset/Transformer_subtree_IRPP_test_Primitive.txt --source_vocab_list ../dataset/Transformer_subtree_IRPP_Integrand_vocab.pickle --target_vocab_list ../dataset/Transformer_subtree_IRPP_Primitive_vocab.pickle --learned_model ../model/Transformer_subtree_IRPP_best_model [--gpu gpu]
      ```
 
-   The following list of options will be displayed by adding -h option to the script for Transformer model.
+   The following list of options will be displayed by adding -h option to each script for Transformer models.
 
    ```
-    --source                                     : Specify Integrand data (text file).
-    --target                                     : Specify Primitive data (text file).
-    --source_vocab_list                          : Specify dictionary of mathematical symbols used in Integrand data (pickle file).
-    --target_vocab_list                          : Specify dictionary of mathematical symbols used in Primitive data (pickle file).
-    --learned_model                              : Specify learned model (npz file).
-    --gpu GPU, -g GPU                            : Specify GPU ID (negative value indicates CPU).
-    ```
+   --source                                     : Specify Integrand data (text file).
+   --target                                     : Specify Primitive data (text file).
+   --source_vocab_list                          : Specify dictionary of mathematical symbols used in Integrand data (pickle file).
+   --target_vocab_list                          : Specify dictionary of mathematical symbols used in Primitive data (pickle file).
+   --learned_model                              : Specify learned model (npz file).
+   --gpu GPU, -g GPU                            : Specify GPU ID (negative value indicates CPU).
+   ```
 
    - Integrated All Models
    
