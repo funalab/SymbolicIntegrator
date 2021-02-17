@@ -1,7 +1,7 @@
 # Symbolic Integration Model 
 
 This is the code for Symbolic Integration by integrating learning models with different strengths and weaknesses.
-This project is carried out in cooperation with [Funahashi Lab. at Keio University](https://fun.bio.keio.ac.jp/).
+This project is carried out by [Funahashi Lab. at Keio University](https://fun.bio.keio.ac.jp/).
 
 ![symbolic integration](https://gitlab.com/funalab/symbolicintegrationmodel/-/raw/images/image1.png)
 
