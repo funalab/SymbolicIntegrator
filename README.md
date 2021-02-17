@@ -60,17 +60,17 @@ We developed following eight learning models for symbolic integration that were 
 
    - LSTM string polish model
      
-     The best learned model for LSTM string polish model is `SymbolicIntegrationModel/LSTM_string/models/LSTM_string_polish_best_model`.
+     The best learned model for LSTM string polish model is `SymbolicIntegrationModel/LSTM_string/model/LSTM_string_polish_best_model`.
      To verify the accuracy of the learned model using test data in `SymbolicIntegrationModel/LSTM_string/dataset/LSTM_string_Polish_test_Integrand.txt`, run the following:
    
      ```sh
      % cd LSTM_string/src
-     % python LSTM_string_polish_model.py --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_Polish_test_Integrand.txt --Primitive_dataset ../dataset/LSTM_string_Polish_test_Primitive.txt --study_name MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid --learned_model ../models/LSTM_string_polish_best_model [--gpu gpu]
+     % python LSTM_string_polish_model.py --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_Polish_test_Integrand.txt --Primitive_dataset ../dataset/LSTM_string_Polish_test_Primitive.txt --study_name MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid --learned_model ../model/LSTM_string_polish_best_model [--gpu gpu]
      ```
 
    - LSTM string IRPP model
    
-     The best learned model for LSTM string IRPP model is `SymbolicIntegrationModel/LSTM_string/models/LSTM_string_IRPP_best_model`.
+     The best learned model for LSTM string IRPP model is `SymbolicIntegrationModel/LSTM_string/model/LSTM_string_IRPP_best_model`.
      To verify the accuracy of the learned model using test data in `SymbolicIntegrationModel/LSTM_string/dataset/LSTM_string_IRPP_test_Integrand.txt`, run the following:
 
      ```sh
