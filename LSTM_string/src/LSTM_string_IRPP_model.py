@@ -2,8 +2,7 @@ import chainer
 import chainer.links as L
 import chainer.functions as F
 import random
-#import cupy as np #if gpu is used
-import numpy as np 
+import cupy as np
 import codecs
 from chainer.training import extensions,triggers
 import pickle
@@ -252,16 +251,16 @@ def convert(batch, device):
     res = {'xs': to_device_batch([x for x, _ in batch]),
            'ys': to_device_batch([y for _, y in batch])}
     return res
-"""
-def objective(trial):
-    #Objective function to make optimization for Optuna.
 
-    #Args:
-    #   trial: optuna.trial.Trial
-    #Returns:
-    #    loss: float
-    #        Loss value for the trial
-    
+def objective(trial):
+    """Objective function to make optimization for Optuna.
+
+    Args:
+       trial: optuna.trial.Trial
+    Returns:
+        loss: float
+            Loss value for the trial
+    """
     mlp = generate_model(trial)
 
     seed = 1984
@@ -319,9 +318,11 @@ def objective(trial):
             trial, 'validation/main/loss', (PRUNER_INTERVAL, 'epoch')))
                                         
     trainer.run()
-    #mlp.to_gpu() #if gpu is used
-    mlp.to_cpu()
-    
+    #if GPU >= 0:
+    mlp.to_gpu()
+    #else:
+    #    mlp.to_cpu()
+        
     loss = log_report_extention.log[-1]['validation/main/loss']
     count = 0
     for source, target in valid:
@@ -345,15 +346,13 @@ def objective(trial):
         
     #return loss
     return -(count/len(valid))
-"""
-"""
 def generate_model(trial):
-    
-    #:Args
-    #     trial : optuna.trial.Trial
-    #:return:
-    #     classifier: chainer.links.Classifier
-    
+    """
+    :Args
+         trial : optuna.trial.Trial
+    :return:
+         classifier: chainer.links.Classifier
+    """
     # Suggest hyperparameters
     data = Data()
     global n_vocab
@@ -375,7 +374,7 @@ def generate_model(trial):
     mlp = EncoderDecoder(n_layer, n_vocab, n_out, n_hidden, dropout)
 
     return mlp
-"""
+
 def create_optimizer(trial,model):
     optimizer_name = optimizer_name = trial.suggest_categorical('optimizer', ['Adam', 'MomentumSGD'])
     if optimizer_name == 'Adam':
@@ -410,6 +409,10 @@ def main():
     parser.add_argument('--learned_model', '-m',type=str, default='../models/LSTM_string_IRPP_best_model')
     args = parser.parse_args()
 
+    global GPU
+
+    GPU = args.gpu   
+        
     sys.path.append('../dataset/')
     sys.path.append('../models')
     
@@ -469,8 +472,10 @@ e        None
     #print("k_fold_for_train_valid:"+str(k_fold_for_train_valid))
     #valid = divide_train_and_validation[k_fold_for_train_valid][1]
 
-    #mlp.to_gpu() #if gpu is used
-    mlp.to_cpu()
+    #if GPU >= 0:
+    mlp.to_gpu()
+    #else:
+    #    mlp.to_cpu()
     
     count = 0
     wrong_eq_list =[]
