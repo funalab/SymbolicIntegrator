@@ -13,68 +13,68 @@ EQ_NUM=$(cat $1 | wc -l)
 
 echo "Equation num:"$EQ_NUM
 
-if [ "$(cat ../LSTM_string/dataset/LSTM_string_Polish_test_Integrand.txt | wc -l)" != "$EQ_NUM" ]; then
+if [ "$(cat ../LSTM_string/dataset/LSTM_string_Polish_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
   echo "LSTM_string_Polish_test_Integrand dataset length not equal to argument file"
   exit 1
    
-elif [ "$(cat ../LSTM_string/dataset/LSTM_string_Polish_test_Primitive.txt | wc -l)" != "$EQ_NUM" ]; then 
+elif [ "$(cat ../LSTM_string/dataset/LSTM_string_Polish_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then 
   echo	"LSTM_string_Polish_test_Primitive dataset length not equal to argument file"
   exit 1
 
-elif [ "$(cat ../LSTM_string/dataset/LSTM_string_IRPP_test_Integrand.txt | wc -l)" != "$EQ_NUM" ]; then 
-  echo "LSTM_string_IRPP_test_Integrand.txt dataset length not equal to argument file"
+elif [ "$(cat ../LSTM_string/dataset/LSTM_string_IRPP_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then 
+  echo "LSTM_string_IRPP_test_Integrand_first_10eq.txt dataset length not equal to argument file"
   exit 1
 
-elif [ "$(cat ../LSTM_string/dataset/LSTM_string_IRPP_test_Primitive.txt | wc -l)" != "$EQ_NUM" ]; then 
-  echo "LSTM_string_IRPP_test_Primitive.txt dataset length not equal to argument file"   
+elif [ "$(cat ../LSTM_string/dataset/LSTM_string_IRPP_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then 
+  echo "LSTM_string_IRPP_test_Primitive_first_10eq.txt dataset length not equal to argument file"   
   exit 1
    
-elif [ "$(cat ../LSTM_subtree/dataset/LSTM_subtree_polish_test_Integrand.txt | wc -l)" != "$EQ_NUM" ]; then 
-  echo "LSTM_subtree_polish_test_Integrand.txt dataset length not equal to argument file"    
+elif [ "$(cat ../LSTM_subtree/dataset/LSTM_subtree_polish_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then 
+  echo "LSTM_subtree_polish_test_Integrand_first_10eq.txt dataset length not equal to argument file"    
   exit 1
    
-elif [ "$(cat ../LSTM_subtree/dataset/LSTM_subtree_polish_test_Primitive.txt | wc -l)" != "$EQ_NUM" ]; then 
-  echo "LSTM_subtree_polish_test_Primitive.txt dataset length not equal to argument file"
+elif [ "$(cat ../LSTM_subtree/dataset/LSTM_subtree_polish_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then 
+  echo "LSTM_subtree_polish_test_Primitive_first_10eq.txt dataset length not equal to argument file"
   exit 1
 
-elif [ "$(cat ../LSTM_subtree/dataset/LSTM_subtree_IRPP_test_Integrand.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "LSTM_subtree_IRPP_test_Integrand.txt dataset length not equal to argument file"
+elif [ "$(cat ../LSTM_subtree/dataset/LSTM_subtree_IRPP_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
+  echo "LSTM_subtree_IRPP_test_Integrand_first_10eq.txt dataset length not equal to argument file"
   exit 1
 
-elif [ "$(cat ../LSTM_subtree/dataset/LSTM_subtree_IRPP_test_Primitive.txt | wc -l)" != "$EQ_NUM" ]; then 
-  echo "LSTM_subtree_IRPP_test_Primitive.txt dataset length not equal to argument file" 
+elif [ "$(cat ../LSTM_subtree/dataset/LSTM_subtree_IRPP_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then 
+  echo "LSTM_subtree_IRPP_test_Primitive_first_10eq.txt dataset length not equal to argument file" 
   exit 1
 
-elif [ "$(cat ../Transformer_string/dataset/Transformer_string_polish_test_Integrand.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_string_polish_test_Integrand.txt dataset length not equal to argument file"
+elif [ "$(cat ../Transformer_string/dataset/Transformer_string_polish_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
+  echo "Transformer_string_polish_test_Integrand_first_10eq.txt dataset length not equal to argument file"
   exit 1
 
-elif [ "$(cat ../Transformer_string/dataset/Transformer_string_polish_test_Primitive.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_string_polish_test_Primitive.txt dataset length not equal to argument file"	
+elif [ "$(cat ../Transformer_string/dataset/Transformer_string_polish_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
+  echo "Transformer_string_polish_test_Primitive_first_10eq.txt dataset length not equal to argument file"	
   exit 1  
 
-elif [ "$(cat ../Transformer_string/dataset/Transformer_string_IRPP_test_Integrand.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_string_IRPP_test_Integrand.txt dataset length not equal to argument file"
+elif [ "$(cat ../Transformer_string/dataset/Transformer_string_IRPP_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
+  echo "Transformer_string_IRPP_test_Integrand_first_10eq.txt dataset length not equal to argument file"
   exit 1
 
-elif [ "$(cat ../Transformer_string/dataset/Transformer_string_IRPP_test_Primitive.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_string_IRPP_test_Primitive.txt dataset length not equal to argument file"
+elif [ "$(cat ../Transformer_string/dataset/Transformer_string_IRPP_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
+  echo "Transformer_string_IRPP_test_Primitive_first_10eq.txt dataset length not equal to argument file"
   exit 1
 
-elif [ "$(cat ../Transformer_subtree/dataset/Transformer_subtree_polish_test_Integrand.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_subtree_polish_test_Integrand.txt dataset length not equal to argument file"
+elif [ "$(cat ../Transformer_subtree/dataset/Transformer_subtree_polish_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
+  echo "Transformer_subtree_polish_test_Integrand_first_10eq.txt dataset length not equal to argument file"
   exit 1
 
-elif [ "$(cat ../Transformer_subtree/dataset/Transformer_subtree_polish_test_Primitive.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_subtree_polish_test_Primitive.txt dataset length not equal to argument file"
+elif [ "$(cat ../Transformer_subtree/dataset/Transformer_subtree_polish_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
+  echo "Transformer_subtree_polish_test_Primitive_first_10eq.txt dataset length not equal to argument file"
   exit 1
 
-elif [ "$(cat ../Transformer_subtree/dataset/Transformer_subtree_IRPP_test_Integrand.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_subtree_IRPP_test_Integrand.txt dataset length not equal to argument file"
+elif [ "$(cat ../Transformer_subtree/dataset/Transformer_subtree_IRPP_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
+  echo "Transformer_subtree_IRPP_test_Integrand_first_10eq.txt dataset length not equal to argument file"
   exit 1
 
-elif [ "$(cat ../Transformer_subtree/dataset/Transformer_subtree_IRPP_test_Primitive.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_subtree_IRPP_test_Primitive.txt dataset length not equal to argument file"
+elif [ "$(cat ../Transformer_subtree/dataset/Transformer_subtree_IRPP_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
+  echo "Transformer_subtree_IRPP_test_Primitive_first_10eq.txt dataset length not equal to argument file"
   exit 1
   
 else 
@@ -85,24 +85,24 @@ for ((COUNTER=1;COUNTER<=EQ_NUM;COUNTER++)); do
 
     echo "eq_num:"`expr $COUNTER - 1`
     #LSTM dataset 
-    sed -n "$COUNTER"p ../LSTM_string/dataset/LSTM_string_Polish_test_Integrand.txt > one_eq_LSTM_string_Polish_test_Integrand.txt   
-    sed -n "$COUNTER"p ../LSTM_string/dataset/LSTM_string_Polish_test_Primitive.txt > one_eq_LSTM_string_Polish_test_Primitive.txt
-    sed -n "$COUNTER"p ../LSTM_string/dataset/LSTM_string_IRPP_test_Integrand.txt > one_eq_LSTM_string_IRPP_test_Integrand.txt
-    sed -n "$COUNTER"p ../LSTM_string/dataset/LSTM_string_IRPP_test_Primitive.txt > one_eq_LSTM_string_IRPP_test_Primitive.txt
-    sed -n "$COUNTER"p ../LSTM_subtree/dataset/LSTM_subtree_polish_test_Integrand.txt > one_eq_LSTM_subtree_polish_test_Integrand.txt 
-    sed -n "$COUNTER"p ../LSTM_subtree/dataset/LSTM_subtree_polish_test_Primitive.txt > one_eq_LSTM_subtree_polish_test_Primitive.txt 
-    sed -n "$COUNTER"p ../LSTM_subtree/dataset/LSTM_subtree_IRPP_test_Integrand.txt > one_eq_LSTM_subtree_IRPP_test_Integrand.txt
-    sed -n "$COUNTER"p ../LSTM_subtree/dataset/LSTM_subtree_IRPP_test_Primitive.txt > one_eq_LSTM_subtree_IRPP_test_Primitive.txt
+    sed -n "$COUNTER"p ../LSTM_string/dataset/LSTM_string_Polish_test_Integrand_first_10eq.txt > one_eq_LSTM_string_Polish_test_Integrand.txt   
+    sed -n "$COUNTER"p ../LSTM_string/dataset/LSTM_string_Polish_test_Primitive_first_10eq.txt > one_eq_LSTM_string_Polish_test_Primitive.txt
+    sed -n "$COUNTER"p ../LSTM_string/dataset/LSTM_string_IRPP_test_Integrand_first_10eq.txt > one_eq_LSTM_string_IRPP_test_Integrand.txt
+    sed -n "$COUNTER"p ../LSTM_string/dataset/LSTM_string_IRPP_test_Primitive_first_10eq.txt > one_eq_LSTM_string_IRPP_test_Primitive.txt
+    sed -n "$COUNTER"p ../LSTM_subtree/dataset/LSTM_subtree_polish_test_Integrand_first_10eq.txt > one_eq_LSTM_subtree_polish_test_Integrand.txt 
+    sed -n "$COUNTER"p ../LSTM_subtree/dataset/LSTM_subtree_polish_test_Primitive_first_10eq.txt > one_eq_LSTM_subtree_polish_test_Primitive.txt 
+    sed -n "$COUNTER"p ../LSTM_subtree/dataset/LSTM_subtree_IRPP_test_Integrand_first_10eq.txt > one_eq_LSTM_subtree_IRPP_test_Integrand.txt
+    sed -n "$COUNTER"p ../LSTM_subtree/dataset/LSTM_subtree_IRPP_test_Primitive_first_10eq.txt > one_eq_LSTM_subtree_IRPP_test_Primitive.txt
 
     #Transformer dataset
-    sed -n "$COUNTER"p ../Transformer_string/dataset/Transformer_string_polish_test_Integrand.txt > one_eq_Transformer_string_polish_test_Integrand.txt
-    sed -n "$COUNTER"p ../Transformer_string/dataset/Transformer_string_polish_test_Primitive.txt > one_eq_Transformer_string_polish_test_Primitive.txt
-    sed -n "$COUNTER"p ../Transformer_string/dataset/Transformer_string_IRPP_test_Integrand.txt > one_eq_Transformer_string_IRPP_test_Integrand.txt
-    sed -n "$COUNTER"p ../Transformer_string/dataset/Transformer_string_IRPP_test_Primitive.txt > one_eq_Transformer_string_IRPP_test_Primitive.txt
-    sed -n "$COUNTER"p ../Transformer_subtree/dataset/Transformer_subtree_polish_test_Integrand.txt > one_eq_Transformer_subtree_polish_test_Integrand.txt
-    sed -n "$COUNTER"p ../Transformer_subtree/dataset/Transformer_subtree_polish_test_Primitive.txt > one_eq_Transformer_subtree_polish_test_Primitive.txt
-    sed -n "$COUNTER"p ../Transformer_subtree/dataset/Transformer_subtree_IRPP_test_Integrand.txt > one_eq_Transformer_subtree_IRPP_test_Integrand.txt 
-    sed -n "$COUNTER"p ../Transformer_subtree/dataset/Transformer_subtree_IRPP_test_Primitive.txt > one_eq_Transformer_subtree_IRPP_test_Primitive.txt
+    sed -n "$COUNTER"p ../Transformer_string/dataset/Transformer_string_polish_test_Integrand_first_10eq.txt > one_eq_Transformer_string_polish_test_Integrand.txt
+    sed -n "$COUNTER"p ../Transformer_string/dataset/Transformer_string_polish_test_Primitive_first_10eq.txt > one_eq_Transformer_string_polish_test_Primitive.txt
+    sed -n "$COUNTER"p ../Transformer_string/dataset/Transformer_string_IRPP_test_Integrand_first_10eq.txt > one_eq_Transformer_string_IRPP_test_Integrand.txt
+    sed -n "$COUNTER"p ../Transformer_string/dataset/Transformer_string_IRPP_test_Primitive_first_10eq.txt > one_eq_Transformer_string_IRPP_test_Primitive.txt
+    sed -n "$COUNTER"p ../Transformer_subtree/dataset/Transformer_subtree_polish_test_Integrand_first_10eq.txt > one_eq_Transformer_subtree_polish_test_Integrand.txt
+    sed -n "$COUNTER"p ../Transformer_subtree/dataset/Transformer_subtree_polish_test_Primitive_first_10eq.txt > one_eq_Transformer_subtree_polish_test_Primitive.txt
+    sed -n "$COUNTER"p ../Transformer_subtree/dataset/Transformer_subtree_IRPP_test_Integrand_first_10eq.txt > one_eq_Transformer_subtree_IRPP_test_Integrand.txt 
+    sed -n "$COUNTER"p ../Transformer_subtree/dataset/Transformer_subtree_IRPP_test_Primitive_first_10eq.txt > one_eq_Transformer_subtree_IRPP_test_Primitive.txt
 
     #LSTM string polish model 
     python ../LSTM_string/src/LSTM_string_polish_model.py -g 0 --Integrand_dataset one_eq_LSTM_string_Polish_test_Integrand.txt --Primitive_dataset one_eq_LSTM_string_Polish_test_Primitive.txt --token_dataset ../LSTM_string/dataset/LSTM_string_polish_token.txt --study_name MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid --learned_model ../LSTM_string/models/LSTM_string_polish_best_model
