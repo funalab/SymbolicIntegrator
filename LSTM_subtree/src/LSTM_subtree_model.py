@@ -501,7 +501,7 @@ def main():
         load_if_exists=True, pruner=optuna.pruners.MedianPruner())
     
     print('=== Best Trial ===')
-    print(study.trials[0])
+#    print(study.trials[0])
     evaluate_results(study.trials[0],vocab,integrand_dataset,primitive_dataset,MODEL_DIRECTORY)
 
 def evaluate_results(trial,vocab,integrand_dataset,primitive_dataset,MODEL_DIRECTORY):

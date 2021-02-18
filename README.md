@@ -95,7 +95,11 @@ We developed following eight learning models for symbolic integration that were 
 
      ```sh
      % cd LSTM_subtree/src
-     % python LSTM_subtree_model.py --token_dataset ../dataset/LSTM_subtree_polish_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_test_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_test_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue --learned_model ../model/LSTM_subtree_IRPP_best_model [--gpu gpu]
+<<<<<<< Updated upstream
+     % python LSTM_subtree_model.py --token_dataset ../dataset/LSTM_subtree_IRPP_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_test_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_test_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue --learned_model ../model/LSTM_subtree_IRPP_best_model [--gpu gpu]
+=======
+     % python LSTM_subtree_model.py --gpu 0 --token_dataset ../dataset/LSTM_subtree_IRPP_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_test_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_test_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue --learned_model ../model/LSTM_subtree_IRPP_best_model
+>>>>>>> Stashed changes
      ```
 
    The following list of options will be displayed by adding -h option to each script for LSTM models.
@@ -104,7 +108,7 @@ We developed following eight learning models for symbolic integration that were 
    --Integrand_dataset                          : Specify Integrand data (text file).
    --Primitive_dataset                          : Specify Primitive data (text file).
    --token_dataset                              : Specify dictionary of mathematical symbols used in Integrand and Primitive data (text file).
-   --study_name                                 : Specify ???
+   --study_name                                 : Specify hyperparameter values from Optuna result (SQLite database).
    --learned_model                              : Specify learned model (npz file).
    --gpu GPU, -g GPU                            : Specify GPU ID (negative value indicates CPU).
    ```

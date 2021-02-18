@@ -21,3 +21,9 @@ dataset
 *.txt
 *.zip
 *.log
+
+#my own README
+READ_ME_LSTM_string_polish.md
+READ_ME_LSTM_subtree.md
+READ_ME_Transformer_string.md
+READ_ME_transformer_subtree.md

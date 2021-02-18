@@ -18,7 +18,6 @@ import sys
 
 SIZE = 10000
 EOS = 1
-BOS = 0
 
 class EncoderDecoder(chainer.Chain):
     def __init__(self, n_layer, n_vocab, n_out, n_hidden, dropout):
@@ -492,10 +491,10 @@ e        None
         predict = mlp.translate_with_beam_search(np.array(source, dtype=np.int32),max_length=100,beam_width=1)
         elapsed_time = time.time() - start
         source_str_list = [data.vocab_inv[int(w)] for w in source]
-        source = ' '.join([data.vocab_inv[int(w)] for w in source if w != EOS and w != BOS])
+        source = ' '.join([data.vocab_inv[int(w)] for w in source if w != EOS])
         predict_str_list = [data.vocab_inv[int(w)] for w in predict]
-        predict = ' '.join([data.vocab_inv[int(w)] for w in predict if w != EOS and w != BOS])
-        target = ' '.join([data.vocab_inv[int(w)] for w in target if w != EOS and w != BOS])
+        predict = ' '.join([data.vocab_inv[int(w)] for w in predict if w != EOS])
+        target = ' '.join([data.vocab_inv[int(w)] for w in target if w != EOS])
         list_result_for_attention.append((source_str_list,predict_str_list))
 
         print("-----")
