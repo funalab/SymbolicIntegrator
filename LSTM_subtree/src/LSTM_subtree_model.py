@@ -497,10 +497,14 @@ def main():
     epochs = args.epoch
     batchsize = args.batchsize
     MODEL_DIRECTORY = Path(args.learned_model)
-    study = optuna.create_study(study_name = STUDY_NAME,storage=f"sqlite:///{STUDY_NAME}.db",
-        load_if_exists=True, pruner=optuna.pruners.MedianPruner())
-    
-    print('=== Best Trial ===')
+    #study = optuna.create_study(study_name = STUDY_NAME,storage=f"sqlite:///{STUDY_NAME}.db",
+    #    load_if_exists=True, pruner=optuna.pruners.MedianPruner())
+    study = optuna.load_study(study_name = STUDY_NAME,storage=f"sqlite:///{STUDY_NAME}.db")
+    #print('=== Best Trial ===')
+    if STUDY_NAME == "MLP_cupy_MedianPruner_epoch30_subtree_complete_correct_continue": 
+        print('=== LSTM subtree polish model ===')
+    if STUDY_NAME == "MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue":
+        print('=== LSTM subtree IRPP model ===')
 #    print(study.trials[0])
     evaluate_results(study.trials[0],vocab,integrand_dataset,primitive_dataset,MODEL_DIRECTORY)
 
@@ -513,7 +517,7 @@ def evaluate_results(trial,vocab,integrand_dataset,primitive_dataset,MODEL_DIREC
 e        None
     """
     trial_number = 0#trial.number
-    print("triaL_number"+str(trial_number))
+    #print("triaL_number"+str(trial_number))
     data = Data(vocab,integrand_dataset,primitive_dataset)
     n_vocab = len(data.vocab)
     n_out = len(data.vocab)
@@ -557,29 +561,32 @@ e        None
         target = ' '.join([data.vocab_inv[int(w)] for w in target])
         list_result_for_attention.append((source_str_list,predict_str_list))
         print("-----")
-        print("source:", str(source))
-        print("predict:", str(predict))
+        print("eq_num:",str(index_num))
+        print("Integrand(Input):", str(source))
+        print("Primitive(Output):", str(predict))
+        print("Correct Answer:", str(target))
         print("elapsed_time:",str(elapsed_time))
-        print("target:", str(target))
         if predict == target:
             count += 1
-            print("correct:"+str(index_num))
+            #print("correct:"+str(index_num))
+            print("Correct!")
             index_num+=1
         else:
-            print("wrong:"+str(index_num))
+            #print("wrong:"+str(index_num))
+            print("Wrong")
             wrong_eq_list.append(index_num)
             index_num+=1
-        print('- accuracy:',str(-(count/len(test))))
+        #print('- accuracy:',str(-(count/len(test))))
     
     #with open('result_for_attention_12122_fold_{0}_test.pickle'.format(k_fold_for_train_valid),'wb') as f:
     #    pickle.dump(list_result_for_attention,f)
     #with open('attention_weight_12122_fold_{0}_test.pickle'.format(k_fold_for_train_valid),'wb') as f:
     #    pickle.dump(mlp.attention_weight,f)
-            
-    print("count:"+str(count))
+    print("---Result Summary---")        
+    print("Total correct equation num:{}".format(str(count)))
     print("len(test):{}".format(len(test)))
-    print("test_accuracy:{}%".format(count/len(test)))
-    print("wrong_eq_list:{}".format(wrong_eq_list))
+    print("Complete Correct Answer Rate:{}%".format(100*count/len(test)))
+    #print("wrong_eq_list:{}".format(wrong_eq_list))
 
 if __name__ == '__main__':
     main()
