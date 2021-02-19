@@ -167,8 +167,11 @@ We developed following eight learning models for symbolic integration that were 
 
    ```sh
    % cd Integrated_all_model
-   % ./run.sh ../LSTM_string/dataset/LSTM_string_Polish_test_Integrand_first_10eq.txt -1 (change -1 to 0 if you use gpu)  
+   % ./run.sh ../LSTM_string/dataset/LSTM_string_Polish_test_Integrand_first_10eq.txt [gpu]
    ```
+   Note the last positional argument of the command should be the GPU ID.
+   If you want to run it on the CPU, specify a negative value.
+   
 
 ## Acknowledgement
 
@@ -177,4 +180,4 @@ The development of this algorithm was funded by Japan Science and Technology Age
 
 ## References
 
-[https://github.com/soskek/attention_is_all_you_need](https://github.com/soskek/attention_is_all_you_need)
+- [Transformer - Attention Is All You Need](https://github.com/soskek/attention_is_all_you_need)
