@@ -60,8 +60,8 @@ We developed following eight learning models for symbolic integration that were 
 
    - LSTM string polish model
      
-     The best learned model for LSTM string polish model is `SymbolicIntegrationModel/LSTM_string/model/LSTM_string_polish_best_model`.
-     To verify the accuracy of the learned model using test data (10 functions) in `SymbolicIntegrationModel/LSTM_string/dataset/LSTM_string_Polish_test_Integrand_first_10eq.txt`, run the following:
+     The best learned model for LSTM string polish model is `LSTM_string/model/LSTM_string_polish_best_model`.
+     To verify the accuracy of the learned model using test data (10 functions) in `LSTM_string/dataset/LSTM_string_Polish_test_Integrand_first_10eq.txt`, run the following:
    
      ```sh
      % cd LSTM_string/src
@@ -70,8 +70,8 @@ We developed following eight learning models for symbolic integration that were 
 
    - LSTM string IRPP model
    
-     The best learned model for LSTM string IRPP model is `SymbolicIntegrationModel/LSTM_string/model/LSTM_string_IRPP_best_model`.
-     To verify the accuracy of the learned model using test data (10 functions) in `SymbolicIntegrationModel/LSTM_string/dataset/LSTM_string_IRPP_test_Integrand_first_10eq.txt`, run the following:
+     The best learned model for LSTM string IRPP model is `LSTM_string/model/LSTM_string_IRPP_best_model`.
+     To verify the accuracy of the learned model using test data (10 functions) in `LSTM_string/dataset/LSTM_string_IRPP_test_Integrand_first_10eq.txt`, run the following:
 
      ```sh
      % cd LSTM_string/src
@@ -80,8 +80,8 @@ We developed following eight learning models for symbolic integration that were 
 
    - LSTM subtree polish model
    
-     The best learned model for LSTM subtree polish model is `SymbolicIntegrationModel/LSTM_subtree/model/LSTM_subtree_polish_best_model`.
-     To verify the accuracy of the learned model using test data (10 functions) in `SymbolicIntegrationModel/LSTM_subtree/dataset/LSTM_subtree_polish_test_Integrand_first_10eq.txt`, run the following:
+     The best learned model for LSTM subtree polish model is `LSTM_subtree/model/LSTM_subtree_polish_best_model`.
+     To verify the accuracy of the learned model using test data (10 functions) in `LSTM_subtree/dataset/LSTM_subtree_polish_test_Integrand_first_10eq.txt`, run the following:
 
      ```sh
      % cd LSTM_subtree/src
@@ -90,8 +90,8 @@ We developed following eight learning models for symbolic integration that were 
 
    - LSTM subtree IRPP model
    
-     The best learned model for LSTM subtree IRPP model is `SymbolicIntegrationModel/LSTM_subtree/model/LSTM_subtree_IRPP_best_model`. 
-     To verify the accuracy of the learned model using test data (10 functions) in `SymbolicIntegrationModel/LSTM_subtree/dataset/LSTM_subtree_IRPP_test_Integrand_first_10eq.txt`, run the following:
+     The best learned model for LSTM subtree IRPP model is `LSTM_subtree/model/LSTM_subtree_IRPP_best_model`. 
+     To verify the accuracy of the learned model using test data (10 functions) in `LSTM_subtree/dataset/LSTM_subtree_IRPP_test_Integrand_first_10eq.txt`, run the following:
 
      ```sh
      % cd LSTM_subtree/src
@@ -114,8 +114,8 @@ We developed following eight learning models for symbolic integration that were 
 
    - Transformer string polish model
    
-     The best learned model for Transformer string polish model is `SymbolicIntegrationModel/Transformer_string/model/Transformer_string_polish_best_model`.
-     To verify the accuracy of the learned model using test data (10 functions) in `SymbolicIntegrationModel/Transformer_string/dataset/Transformer_string_polish_test_Integrand_first_10eq.txt`, run the following:
+     The best learned model for Transformer string polish model is `Transformer_string/model/Transformer_string_polish_best_model`.
+     To verify the accuracy of the learned model using test data (10 functions) in `Transformer_string/dataset/Transformer_string_polish_test_Integrand_first_10eq.txt`, run the following:
 
      ```sh
      % cd Transformer_string/src
@@ -124,8 +124,8 @@ We developed following eight learning models for symbolic integration that were 
 
    - Transformer string IRPP model
    
-     The best learned model for Transformer string IRPP model is `SymbolicIntegrationModel/Transformer_string/model/Transformer_string_IRPP_best_model`.
-     To verify the accuracy of the learned model using test data (10 functions) in `SymbolicIntegrationModel/Transformer_string/dataset/Transformer_string_IRPP_test_Integrand_first_10eq.txt`, run the following:
+     The best learned model for Transformer string IRPP model is `Transformer_string/model/Transformer_string_IRPP_best_model`.
+     To verify the accuracy of the learned model using test data (10 functions) in `Transformer_string/dataset/Transformer_string_IRPP_test_Integrand_first_10eq.txt`, run the following:
  
      ```sh
      % cd Transformer_string/src
@@ -134,8 +134,8 @@ We developed following eight learning models for symbolic integration that were 
 
    - Transformer subtree polish model
    
-     The best learned model for Transformer subtree polish model is `SymbolicIntegrationModel/Transformer_subtree/model/Transformer_subtree_polish_best_model`.
-     To verify the accuracy of the learned model using test data (10 functions) in `SymbolicIntegrationModel/Transformer_subtree/dataset/Transformer_subtree_polish_test_Integrand_first_10eq.txt`,run the following:
+     The best learned model for Transformer subtree polish model is `/Transformer_subtree/model/Transformer_subtree_polish_best_model`.
+     To verify the accuracy of the learned model using test data (10 functions) in `Transformer_subtree/dataset/Transformer_subtree_polish_test_Integrand_first_10eq.txt`,run the following:
 
      ```sh
      % cd Transformer_subtree/src
@@ -144,8 +144,8 @@ We developed following eight learning models for symbolic integration that were 
 
    - Transformer subtree IRPP model
    
-     The best learned model for Transformer subtree IRPP model is `SymbolicIntegrationModel/Transformer_subtree/model/Transformer_subtree_IRPP_best_model`.
-     To verify the accuracy of the learned model using test data (10 functions) in  `SymbolicIntegrationModel/Transformer_subtree/dataset/Transformer_subtree_IRPP_test_Integrand_first_10eq.txt`,run the following:
+     The best learned model for Transformer subtree IRPP model is `Transformer_subtree/model/Transformer_subtree_IRPP_best_model`.
+     To verify the accuracy of the learned model using test data (10 functions) in  `Transformer_subtree/dataset/Transformer_subtree_IRPP_test_Integrand_first_10eq.txt`,run the following:
 
      ```sh
      % cd Transformer_subtree/src
