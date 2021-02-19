@@ -236,10 +236,10 @@ def main():
     def translate_one(source, target):
         words = preprocess.split_sentence(source)
         #with open('result_eq_accuracy_polish_prework_epoch300_test_fold_0_inference_test_train_valid_fold'+str(k_fold_for_train_valid)+'_fix_primitive_beam1_visualization_add_decoder_12122_dataset.txt','a') as f:
-        with open(args.outputfile, 'a') as f:
-            #print('# source : ' + ' '.join(words))
-            print("Integrand(Input):" + ' '.join(words))
-            start = time.time()
+        #with open(args.outputfile, 'a') as f:
+        #print('# source : ' + ' '.join(words))
+        print("Integrand(Input):" + ' '.join(words))
+        start = time.time()
         x = model.xp.array(
             [source_ids.get(w, 1) for w in words], 'i')
         ###beam_search###
@@ -269,10 +269,10 @@ def main():
         result = ' '.join(words)
         print('Correct Answer:'+target)
         #with open('result_eq_accuracy_polish_prework_epoch300_test_fold_0_inference_test_train_valid_fold'+str(k_fold_for_train_valid)+'_fix_primitive_beam1_visualization_add_decoder_12122_dataset.txt','a') as f:
-        with open(args.outputfile, 'a') as f:
-            #print("result:"+' '.join(words))
-            #print("expect:"+ target)
-            print("elapsed_time:" + str(elapsed_time))
+        #with open(args.outputfile, 'a') as f:
+        #print("result:"+' '.join(words))
+        #print("expect:"+ target)
+        print("elapsed_time:" + str(elapsed_time))
             
         if result == target:
             return 1
@@ -306,13 +306,13 @@ def main():
         count_correct_eq += translate_one(source, target)
         if count_correct_eq == count_correct_eq_one_step_before:
             wrong_eq_list.append(count_eq)
-            with open(args.outputfile, 'a') as f:
-                #print("wrong_eq:"+str(count_eq))
-                print("Wrong")
+            #with open(args.outputfile, 'a') as f:
+            #print("wrong_eq:"+str(count_eq))
+            print("Wrong")
         else:
-            with open(args.outputfile, 'a') as f:
-                #print("correct_eq:"+str(count_eq))
-                print("Correct!")
+            #with open(args.outputfile, 'a') as f:
+            #print("correct_eq:"+str(count_eq))
+            print("Correct!")
         count_correct_eq_one_step_before = count_correct_eq
         count_eq+=1
 
@@ -345,12 +345,12 @@ def main():
         pickle.dump(attention_weight_all_eq_decoder_l6, f)
     """
     #with open('result_eq_accuracy_polish_prework_epoch300_test_fold_0_inference_test_train_valid_fold'+str(k_fold_for_train_valid)+'_fix_primitive_beam1_visualization_add_decoder_5times_12122_dataset.txt','a') as f:
-    with open(args.outputfile, 'a') as f:
-        if not args.integrated_model:
-            print("---Result Summary---")  
-            print('Total correct equation num:'+str(count_correct_eq))
-            print('len(test):'+str(len(test_data)))
-            print('Complete Correct Answer Rate:{}%'.format(str(100*count_correct_eq/len(test_data))))
+    #with open(args.outputfile, 'a') as f:
+    if not args.integrated_model:
+        print("---Result Summary---")  
+        print('Total correct equation num:'+str(count_correct_eq))
+        print('len(test):'+str(len(test_data)))
+        print('Complete Correct Answer Rate:{}%'.format(str(100*count_correct_eq/len(test_data))))
         #print('wrong_eq_list:'+str(wrong_eq_list))
 
 if __name__ == '__main__':
