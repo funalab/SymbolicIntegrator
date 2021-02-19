@@ -38,7 +38,7 @@ def read_file(path):
     with open_file(path) as f:
         for line in f:#bar(f, max_value=n_lines):
             words = split_sentence(line)
-            print("words:"+str(words))
+            #print("words:"+str(words))
             yield words
 
 
@@ -62,9 +62,9 @@ def make_dataset(path, vocab):
         dataset.append(array)
         token_count += array.size
         unknown_count += (array == 1).sum()
-    print('# of tokens: %d' % token_count)
-    print('# of unknown: %d (%.2f %%)'
-          % (unknown_count, 100. * unknown_count / token_count))
+    #print('# of tokens: %d' % token_count)
+    #print('# of unknown: %d (%.2f %%)'
+    #      % (unknown_count, 100. * unknown_count / token_count))
     return dataset
 
 

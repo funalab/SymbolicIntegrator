@@ -213,7 +213,7 @@ def main():
                         help='Use fixed learning rate rather than the ' +
                              'annealing proposed in the paper')
     args = parser.parse_args()
-    print(json.dumps(args.__dict__, indent=4))
+    #print(json.dumps(args.__dict__, indent=4))
 
     # Check file
     en_path = os.path.join(args.input, args.source)
@@ -233,7 +233,7 @@ def main():
     
     target_data = preprocess.make_dataset(fr_path, target_vocab)
     assert len(source_data) == len(target_data)
-    print('Original total data size: %d' % len(source_data))
+    #print('Original total data size: %d' % len(source_data))
     test_data = [(s, t)
                   for s, t in six.moves.zip(source_data, target_data)]
                   
@@ -252,7 +252,7 @@ def main():
     #train_data = divide_train_and_validation[k_fold_for_train_valid][0]
     #test_data = divide_train_and_validation[k_fold_for_train_valid][1] #自分のモデルでいうvalidation_data
     #print('Filtered training data size: %d' % len(train_data))
-    print('Filtered validation data size: %d' % len(test_data))
+    #print('Filtered validation data size: %d' % len(test_data))
     """
     en_path = os.path.join(args.input, args.source_valid)
     source_data = preprocess.make_dataset(en_path, source_vocab)
@@ -295,7 +295,11 @@ def main():
     #load model
     
     #model_epoch_num = 108
-    print("load_model")
+    if args.learned_model == "../model/Transformer_subtree_polish_best_model":
+        print('=== Transformer subtree polish model ===')
+    if args.learned_model == "../model/Transformer_subtree_IRPP_best_model":
+        print('=== Transformer subtree IRPP model ===')
+    print(f"Loading:{args.learned_model}")
     ## for wrong dataset 
     #chainer.serializers.load_npz('/lustre/gn54/i95006/Transformer/attention_is_all_you_need/combine_onigiri_model/Transformer_combine_onigiri_test_fold0_train_valid_fold'+str(k_fold_for_train_valid)+'_first_try_epoch300_fix_output/best_model_valid_loss.npz',model,path='')
     chainer.serializers.load_npz(args.learned_model,model,path='')
@@ -378,7 +382,7 @@ def main():
 
     def translate_one(source, target):
         words = preprocess.split_sentence(source)    
-        print('# source : ' + ' '.join(words))
+        print("Integrand(Input):" + ' '.join(words))
         #start = time.time()       ###########time add ordering result
         x = model.xp.array(
             [source_ids.get(w, 1) for w in words], 'i')
@@ -396,15 +400,15 @@ def main():
         """
         words = [target_words[y] for y in ys]
         #elapsed_time = time.time() - start      ########time add ordering result 
-        print('#  result : ' + ' '.join(words))
+        print('Primitive(Output):' + ' '.join(words))
         result = ' '.join(words)
-        print('#  expect : ' + target)
-        print("time_elapsed:"+str(elapsed_time))
+        print('Correct Answer:'+target)
+        print("elapsed_time:"+str(elapsed_time))
         if result == target:
-            print("correct")
+            #print("correct")
             return 1
         else:
-            print("wrong")
+            #print("wrong")
             return 0
     
     count_correct_eq = 0
@@ -421,14 +425,18 @@ def main():
     """
     for eq_num in range(len(test_data)):
         source, target = test_data[eq_num]
+        print("-----")
+        print("eq_num:",str(eq_num))
         source = ' '.join([source_words[i] for i in source])
         target = ' '.join([target_words[i] for i in target])
         count_correct_eq += translate_one(source, target)
         if count_correct_eq == count_correct_eq_one_step_before:
             wrong_eq_list.append(count_eq)
-            print("wrong_eq:"+str(count_eq))
+            #print("wrong_eq:"+str(count_eq))
+            print("Wrong")
         else:
-            print("correct_eq:"+str(count_eq))
+            #print("correct_eq:"+str(count_eq))
+            print("Correct!")
         count_correct_eq_one_step_before = count_correct_eq
         count_eq+=1
 
@@ -449,10 +457,11 @@ def main():
     
     #print('epoch:'+str(trainer.updater.epoch))
     #print('iteration:'+str(trainer.updater.iteration))
-    print('count_correct_eq:'+str(count_correct_eq))
-    print('test_data:'+str(len(test_data)))
-    print('exact_same_eq_accuracy:'+str(count_correct_eq/len(test_data))+'%\n')
-    print('wrong_eq_list:'+str(wrong_eq_list))
+    print("---Result Summary---")
+    print('Total correct equation num:'+str(count_correct_eq))
+    print('len(test):'+str(len(test_data)))
+    print('Complete Correct Answer Rate:{}%'.format(str(100*count_correct_eq/len(test_data))))
+    #print('wrong_eq_list:'+str(wrong_eq_list))
 
 if __name__ == '__main__':
     main()
