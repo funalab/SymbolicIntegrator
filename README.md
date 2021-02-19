@@ -37,7 +37,7 @@ We developed following eight learning models for symbolic integration that were 
    % git clone git@gitlab.com:funalab/symbolicintegrationmodel.git
    ```
 
-2. Download learned model and dataset (5.6 GB).
+2. Download learned model and dataset (5.0 GB).
 
    - On Linux:
      ```sh
