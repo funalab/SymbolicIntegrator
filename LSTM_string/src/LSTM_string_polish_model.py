@@ -427,11 +427,12 @@ def main():
     epochs = 200
     batchsize = 128
     MODEL_DIRECTORY = Path(args.learned_model)
-    study = optuna.create_study(study_name = STUDY_NAME,storage=f"sqlite:///{STUDY_NAME}.db",
-            load_if_exists=True, pruner=optuna.pruners.MedianPruner())
-
-    print('=== Best Trial ===')
-    print(study.best_trial)
+    #study = optuna.create_study(study_name = STUDY_NAME,storage=f"sqlite:///{STUDY_NAME}.db",
+    #        load_if_exists=True, pruner=optuna.pruners.MedianPruner())
+    study = optuna.load_study(study_name = STUDY_NAME,storage=f"sqlite:///{STUDY_NAME}.db")
+    #print('=== Best Trial ===')
+    print('=== LSTM string polish model ===')
+    #print(study.best_trial)
     evaluate_results(study.best_trial,vocab,integrand_dataset,primitive_dataset,MODEL_DIRECTORY)
 
 def evaluate_results(trial,vocab,integrand_dataset,primitive_dataset,MODEL_DIRECTORY):
@@ -443,7 +444,7 @@ def evaluate_results(trial,vocab,integrand_dataset,primitive_dataset,MODEL_DIREC
 e        None
     """
     trial_number = 8#string Polishの場合       
-    print("triaL_number"+str(trial_number))
+    #print("triaL_number"+str(trial_number))
     data = Data(vocab,integrand_dataset,primitive_dataset)
     n_vocab = len(data.vocab)
     n_out = len(data.vocab)
@@ -452,7 +453,7 @@ e        None
     mlp = EncoderDecoder(trial.params['n_layer'], n_vocab, n_out, trial.params['n_hidden'], trial.params['dropout'])
     
     snapshots = glob.glob(str(MODEL_DIRECTORY))
-    print("snapshots:"+str(snapshots))
+    #print("snapshots:"+str(snapshots))
     latest_snapshot = max(snapshots, key=os.path.getctime)  # The latest snapshot of the trial
     print(f"Loading: {latest_snapshot}")
     
@@ -510,6 +511,7 @@ e        None
         else:
             wrong_eq_list.append(index)
             print("Wrong")
+            index+=1
             
         #print('Accuracy:',str((count/len(test))))
     
