@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
 #export PYENV_ROOT="$HOME/.pyenv"
 #export PATH="$PYENV_ROOT/bin:$PATH"
@@ -12,74 +12,6 @@ COUNTER=0
 EQ_NUM=$(cat $1 | wc -l)
 
 echo "Total test equation num:"$EQ_NUM
-
-if [ "$(cat ../LSTM_string/dataset/LSTM_string_Polish_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "LSTM_string_Polish_test_Integrand dataset length not equal to argument file"
-  exit 1
-   
-elif [ "$(cat ../LSTM_string/dataset/LSTM_string_Polish_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then 
-  echo	"LSTM_string_Polish_test_Primitive dataset length not equal to argument file"
-  exit 1
-
-elif [ "$(cat ../LSTM_string/dataset/LSTM_string_IRPP_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then 
-  echo "LSTM_string_IRPP_test_Integrand_first_10eq.txt dataset length not equal to argument file"
-  exit 1
-
-elif [ "$(cat ../LSTM_string/dataset/LSTM_string_IRPP_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then 
-  echo "LSTM_string_IRPP_test_Primitive_first_10eq.txt dataset length not equal to argument file"   
-  exit 1
-   
-elif [ "$(cat ../LSTM_subtree/dataset/LSTM_subtree_polish_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then 
-  echo "LSTM_subtree_polish_test_Integrand_first_10eq.txt dataset length not equal to argument file"    
-  exit 1
-   
-elif [ "$(cat ../LSTM_subtree/dataset/LSTM_subtree_polish_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then 
-  echo "LSTM_subtree_polish_test_Primitive_first_10eq.txt dataset length not equal to argument file"
-  exit 1
-
-elif [ "$(cat ../LSTM_subtree/dataset/LSTM_subtree_IRPP_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "LSTM_subtree_IRPP_test_Integrand_first_10eq.txt dataset length not equal to argument file"
-  exit 1
-
-elif [ "$(cat ../LSTM_subtree/dataset/LSTM_subtree_IRPP_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then 
-  echo "LSTM_subtree_IRPP_test_Primitive_first_10eq.txt dataset length not equal to argument file" 
-  exit 1
-
-elif [ "$(cat ../Transformer_string/dataset/Transformer_string_polish_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_string_polish_test_Integrand_first_10eq.txt dataset length not equal to argument file"
-  exit 1
-
-elif [ "$(cat ../Transformer_string/dataset/Transformer_string_polish_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_string_polish_test_Primitive_first_10eq.txt dataset length not equal to argument file"	
-  exit 1  
-
-elif [ "$(cat ../Transformer_string/dataset/Transformer_string_IRPP_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_string_IRPP_test_Integrand_first_10eq.txt dataset length not equal to argument file"
-  exit 1
-
-elif [ "$(cat ../Transformer_string/dataset/Transformer_string_IRPP_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_string_IRPP_test_Primitive_first_10eq.txt dataset length not equal to argument file"
-  exit 1
-
-elif [ "$(cat ../Transformer_subtree/dataset/Transformer_subtree_polish_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_subtree_polish_test_Integrand_first_10eq.txt dataset length not equal to argument file"
-  exit 1
-
-elif [ "$(cat ../Transformer_subtree/dataset/Transformer_subtree_polish_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_subtree_polish_test_Primitive_first_10eq.txt dataset length not equal to argument file"
-  exit 1
-
-elif [ "$(cat ../Transformer_subtree/dataset/Transformer_subtree_IRPP_test_Integrand_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_subtree_IRPP_test_Integrand_first_10eq.txt dataset length not equal to argument file"
-  exit 1
-
-elif [ "$(cat ../Transformer_subtree/dataset/Transformer_subtree_IRPP_test_Primitive_first_10eq.txt | wc -l)" != "$EQ_NUM" ]; then
-  echo "Transformer_subtree_IRPP_test_Primitive_first_10eq.txt dataset length not equal to argument file"
-  exit 1
-  
-else 
-  echo "All dataset legnth are equal."
-fi
    
 for ((COUNTER=1;COUNTER<=EQ_NUM;COUNTER++)); do
 
@@ -130,6 +62,6 @@ for ((COUNTER=1;COUNTER<=EQ_NUM;COUNTER++)); do
     
 done
 
-echo "FINISH ALL TEST DATA!"
+echo "FINISHED ALL TEST DATA!"
 
 rm one_eq_*
