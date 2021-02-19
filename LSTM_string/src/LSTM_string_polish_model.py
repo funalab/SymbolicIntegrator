@@ -407,6 +407,8 @@ def main():
     parser.add_argument('--Primitive_dataset', '-p',type=str, default='../dataset/LSTM_string_Polish_test_Primitive.txt')
     parser.add_argument('--study_name', '-s',type=str, default='MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid')
     parser.add_argument('--learned_model', '-m',type=str, default='../models/LSTM_string_polish_best_model')
+    parser.add_argument('--integrated_model', action='store_true',help='use as a component of Integrated All models')
+    global args
     args = parser.parse_args()
 
     sys.path.append('../dataset/')
@@ -497,7 +499,8 @@ e        None
         list_result_for_attention.append((source_str_list,predict_str_list))
 
         print("-----")
-        print("eq_num:",str(index))
+        if not args.integrated_model:
+            print("eq_num:",str(index))
         print("Integrand(Input):", str(source))
         print("Primitive(Output):", str(predict))
         print("Correct Answer:", str(target))
@@ -519,10 +522,11 @@ e        None
     #    pickle.dump(list_result_for_attention,f)
     #with open('attention_weight_12122_fold_{0}_test.pickle'.format(k_fold_for_train_valid),'wb') as f:
     #   pickle.dump(mlp.attention_weight,f)
-    print("---Result Summary---")
-    print("Total correct equation num:{}".format(str(count)))
-    print("len(test):{}".format(len(test)))
-    print("Complete Correct Answer Rate:{}%".format(100*count/len(test)))
+    if not args.integrated_model:
+        print("---Result Summary---")
+        print("Total correct equation num:{}".format(str(count)))
+        print("len(test):{}".format(len(test)))
+        print("Complete Correct Answer Rate:{}%".format(100*count/len(test)))
     #print("Wrong_eq_list:{}".format(wrong_eq_list))
     
 if __name__ == '__main__':

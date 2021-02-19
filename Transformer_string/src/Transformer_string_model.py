@@ -171,6 +171,8 @@ def main():
     parser.add_argument('--use-fixed-lr', action='store_true',
                         help='Use fixed learning rate rather than the ' +
                              'annealing proposed in the paper')
+    parser.add_argument('--integrated_model', action='store_true',help='use as a component of Integrated All models')
+    
     args = parser.parse_args()
     #print(json.dumps(args.__dict__, indent=4))
 
@@ -220,9 +222,9 @@ def main():
         #eps=1e-9
     )
     optimizer.setup(model)
-    if args.learned_model == "../model/Transformer_string_polish_best_model":
+    if args.learned_model == "../model/Transformer_string_polish_best_model" or args.learned_model == "../Transformer_string/model/Transformer_string_polish_best_model":
         print('=== Transformer string polish model ===') 
-    if args.learned_model == "../model/Transformer_string_IRPP_best_model":
+    if args.learned_model == "../model/Transformer_string_IRPP_best_model" or args.learned_model == "../Transformer_string/model/Transformer_string_IRPP_best_model":
         print('=== Transformer string IRPP model ===')
     print(f"Loading: {args.learned_model}")
     chainer.serializers.load_npz(args.learned_model,model,path='')
@@ -297,7 +299,8 @@ def main():
     for eq_num in range(len(test_data)):
         source, target = test_data[eq_num]
         print("-----")
-        print("eq_num:",str(eq_num))
+        if not args.integrated_model:
+            print("eq_num:",str(eq_num))
         source = ' '.join([source_words[i] for i in source])
         target = ' '.join([target_words[i] for i in target])
         count_correct_eq += translate_one(source, target)
@@ -343,9 +346,11 @@ def main():
     """
     #with open('result_eq_accuracy_polish_prework_epoch300_test_fold_0_inference_test_train_valid_fold'+str(k_fold_for_train_valid)+'_fix_primitive_beam1_visualization_add_decoder_5times_12122_dataset.txt','a') as f:
     with open(args.outputfile, 'a') as f:
-        print('Total correct equation num:'+str(count_correct_eq))
-        print('len(test):'+str(len(test_data)))
-        print('Complete Correct Answer Rate:{}%'.format(str(100*count_correct_eq/len(test_data))))
+        if not args.integrated_model:
+            print("---Result Summary---")  
+            print('Total correct equation num:'+str(count_correct_eq))
+            print('len(test):'+str(len(test_data)))
+            print('Complete Correct Answer Rate:{}%'.format(str(100*count_correct_eq/len(test_data))))
         #print('wrong_eq_list:'+str(wrong_eq_list))
 
 if __name__ == '__main__':
