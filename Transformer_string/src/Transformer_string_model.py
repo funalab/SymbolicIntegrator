@@ -172,7 +172,7 @@ def main():
                         help='Use fixed learning rate rather than the ' +
                              'annealing proposed in the paper')
     args = parser.parse_args()
-    print(json.dumps(args.__dict__, indent=4))
+    #print(json.dumps(args.__dict__, indent=4))
 
     # Check file
     en_path = os.path.join(args.input, args.source)
@@ -186,10 +186,10 @@ def main():
         target_vocab = pickle.load(f)
     target_data = preprocess.make_dataset(fr_path, target_vocab)
     assert len(source_data) == len(target_data)
-    print('Original total data size: %d' % len(source_data))
+    #print('Original total data size: %d' % len(source_data))
     test_data = [(s, t)
                  for s, t in six.moves.zip(source_data, target_data)]
-    print('test data size: %d' % len(test_data))
+    #print('test data size: %d' % len(test_data))
 
     source_ids = {word: index for index, word in enumerate(source_vocab)}
     target_ids = {word: index for index, word in enumerate(target_vocab)}
@@ -220,8 +220,11 @@ def main():
         #eps=1e-9
     )
     optimizer.setup(model)
-
-    
+    if args.learned_model == "../model/Transformer_string_polish_best_model":
+        print('=== Transformer string polish model ===') 
+    if args.learned_model == "../model/Transformer_string_IRPP_best_model":
+        print('=== Transformer string IRPP model ===')
+    print(f"Loading: {args.learned_model}")
     chainer.serializers.load_npz(args.learned_model,model,path='')
     
     # Setup Trainer
@@ -232,7 +235,8 @@ def main():
         words = preprocess.split_sentence(source)
         #with open('result_eq_accuracy_polish_prework_epoch300_test_fold_0_inference_test_train_valid_fold'+str(k_fold_for_train_valid)+'_fix_primitive_beam1_visualization_add_decoder_12122_dataset.txt','a') as f:
         with open(args.outputfile, 'a') as f:
-            print('# source : ' + ' '.join(words))
+            #print('# source : ' + ' '.join(words))
+            print("Integrand(Input):" + ' '.join(words))
             start = time.time()
         x = model.xp.array(
             [source_ids.get(w, 1) for w in words], 'i')
@@ -259,14 +263,14 @@ def main():
         """ 
         words = [target_words[y] for y in ys]
         elapsed_time = time.time() - start
-        print('#  result : ' + ' '.join(words))
+        print('Primitive(Output):' + ' '.join(words))
         result = ' '.join(words)
-        print('#  expect : ' + target)
+        print('Correct Answer:'+target)
         #with open('result_eq_accuracy_polish_prework_epoch300_test_fold_0_inference_test_train_valid_fold'+str(k_fold_for_train_valid)+'_fix_primitive_beam1_visualization_add_decoder_12122_dataset.txt','a') as f:
         with open(args.outputfile, 'a') as f:
-            print("result:"+' '.join(words))
-            print("expect:"+ target)
-            print("time_elapsed:" + str(elapsed_time))
+            #print("result:"+' '.join(words))
+            #print("expect:"+ target)
+            print("elapsed_time:" + str(elapsed_time))
             
         if result == target:
             return 1
@@ -292,16 +296,20 @@ def main():
     
     for eq_num in range(len(test_data)):
         source, target = test_data[eq_num]
+        print("-----")
+        print("eq_num:",str(eq_num))
         source = ' '.join([source_words[i] for i in source])
         target = ' '.join([target_words[i] for i in target])
         count_correct_eq += translate_one(source, target)
         if count_correct_eq == count_correct_eq_one_step_before:
             wrong_eq_list.append(count_eq)
             with open(args.outputfile, 'a') as f:
-                print("wrong_eq:"+str(count_eq))
+                #print("wrong_eq:"+str(count_eq))
+                print("Wrong")
         else:
             with open(args.outputfile, 'a') as f:
-                print("correct_eq:"+str(count_eq))
+                #print("correct_eq:"+str(count_eq))
+                print("Correct!")
         count_correct_eq_one_step_before = count_correct_eq
         count_eq+=1
 
@@ -335,10 +343,10 @@ def main():
     """
     #with open('result_eq_accuracy_polish_prework_epoch300_test_fold_0_inference_test_train_valid_fold'+str(k_fold_for_train_valid)+'_fix_primitive_beam1_visualization_add_decoder_5times_12122_dataset.txt','a') as f:
     with open(args.outputfile, 'a') as f:
-        print('count_correct_eq:'+str(count_correct_eq))
-        print('test_data:'+str(len(test_data)))
-        print('exact_same_eq_accuracy:'+str(count_correct_eq/len(test_data))+'%\n',file=f)
-        print('wrong_eq_list:'+str(wrong_eq_list))
+        print('Total correct equation num:'+str(count_correct_eq))
+        print('len(test):'+str(len(test_data)))
+        print('Complete Correct Answer Rate:{}%'.format(str(100*count_correct_eq/len(test_data))))
+        #print('wrong_eq_list:'+str(wrong_eq_list))
 
 if __name__ == '__main__':
     main()

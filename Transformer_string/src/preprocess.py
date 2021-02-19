@@ -60,9 +60,9 @@ def make_dataset(path, vocab):
         dataset.append(array)
         token_count += array.size
         unknown_count += (array == 1).sum()
-    print('# of tokens: %d' % token_count)
-    print('# of unknown: %d (%.2f %%)'
-          % (unknown_count, 100. * unknown_count / token_count))
+    #print('# of tokens: %d' % token_count)
+    #print('# of unknown: %d (%.2f %%)'
+    #      % (unknown_count, 100. * unknown_count / token_count))
     return dataset
 
 
