@@ -498,29 +498,33 @@ e        None
         list_result_for_attention.append((source_str_list,predict_str_list))
 
         print("-----")
-        print("source:", str(source))
-        print("predict:", str(predict))
+        print("eq_num:",str(index))
+        print("Integrand(Input):", str(source))
+        print("Primitive(Output):", str(predict))
+        print("Correct Answer:", str(target))
         print("elapsed_time:",str(elapsed_time))
-        print("target:", str(target))
 
         if predict == target:
             count += 1
-            print("correct:"+str(index))
+            #print("correct:"+str(index))
+            print("Correct!")
             index+=1
         else:
             wrong_eq_list.append(index)
+            print("Wrong")
             
-        print('- accuracy:',str(-(count/len(test))))
+        #print('- accuracy:',str(-(count/len(test))))
     
     #with open('result_for_attention_12122_fold_{0}_test.pickle'.format(k_fold_for_train_valid),'wb') as f:
     #    pickle.dump(list_result_for_attention,f)
     #with open('attention_weight_12122_fold_{0}_test.pickle'.format(k_fold_for_train_valid),'wb') as f:
     #   pickle.dump(mlp.attention_weight,f)
 
-    print("count:"+str(count))
+    print("---Result Summary---")
+    print("Total correct equation num:{}".format(str(count)))
     print("len(test):{}".format(len(test)))
-    print("test_accuracy:{}%".format(count/len(test)))
-    print("wrong_eq_list:{}".format(wrong_eq_list))
+    print("Complete Correct Answer Rate:{}%".format(100*count/len(test)))
+    #print("wrong_eq_list:{}".format(wrong_eq_list))
     
 if __name__ == '__main__':
     main()
