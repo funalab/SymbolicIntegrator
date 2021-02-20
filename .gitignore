@@ -18,6 +18,7 @@ __pycache__
 *~
 
 # Output
+output
 model
 models
 dataset
@@ -30,3 +31,4 @@ READ_ME_LSTM_string_polish.md
 READ_ME_LSTM_subtree.md
 READ_ME_Transformer_string.md
 READ_ME_transformer_subtree.md
+Common_eq_Polish_IRPP.R
