@@ -309,6 +309,37 @@ class Data(chainer.dataset.DatasetMixin):
             line_answer_list = [x for x in line_answer_list if x]
             t.append([char_to_id[c] for c in line_answer_list])
 
+        
+        if not args.integrated_model and (args.study_name=="MLP_cupy_MedianPruner_epoch30_subtree_complete_correct_continue"):
+            f_word_for_polish = codecs.open("../dataset/LSTM_subtree_polish_token_correct_order.txt", 'r', 'utf8')
+            line_polish = f_word_for_polish.readline()
+            id_to_char = {}
+            while line_polish:
+                l = line_polish.strip().split(',')
+                if len(l) == 2:
+                    #char_to_id[l[1]] = int(l[0])
+                    id_to_char[(int(l[0]))] = l[1]
+                elif len(l) != 2:  
+                    #char_to_id[l[1] + ',' + l[2]] = int(l[0])
+                    id_to_char[(int(l[0]))] = ','
+                line_polish = f_word_for_polish.readline()
+            f_word_for_polish.close()
+
+        if args.integrated_model and (args.study_name=="MLP_cupy_MedianPruner_epoch30_subtree_complete_correct_continue"):
+            f_word_for_polish = codecs.open("../LSTM_subtree/dataset/LSTM_subtree_polish_token_correct_order.txt", 'r', 'utf8')
+            line_polish = f_word_for_polish.readline()
+            id_to_char = {}
+            while line_polish:
+                l = line_polish.strip().split(',')
+                if len(l) == 2:
+                    #char_to_id[l[1]] = int(l[0])
+                    id_to_char[(int(l[0]))] = l[1]
+                elif len(l) != 2:  
+                    #char_to_id[l[1] + ',' + l[2]] = int(l[0])
+                    id_to_char[(int(l[0]))] = ','
+                line_polish = f_word_for_polish.readline()
+            f_word_for_polish.close()
+            
         self.sentence = []
         for i in range(len(x)):
             self.sentence.append((np.array(x[i]).astype(np.int32), np.array(t[i]).astype(np.int32)))
@@ -556,7 +587,7 @@ e        None
         target_original = test[index_num][1]
         start = time.time()                                                 
         predict = mlp.translate_with_beam_search(np.array(source, dtype=np.int32),max_length=100, beam_width=1)
-        elapsed_time = time.time() - start        
+        elapsed_time = time.time() - start
         source_str_list = [data.vocab_inv[int(w)] for w in source]
         source = ' '.join([data.vocab_inv[int(w)] for w in source])
         predict_str_list = [data.vocab_inv[int(w)] for w in predict]        
