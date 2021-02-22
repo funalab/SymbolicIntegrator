@@ -182,10 +182,9 @@ We developed following eight learning models for symbolic integration that were 
 
    ```sh
    % cd Integrated_all_model
-   % ./run.sh ../LSTM_string/dataset/LSTM_string_Polish_test_Integrand_first_10eq.txt [gpu id]
+   % ./run.sh [--gpu id | -g id] ../LSTM_string/dataset/LSTM_string_Polish_test_Integrand_first_10eq.txt
    ```
-   Note the last positional argument of the command should be the GPU ID.
-   If you want to run it on the CPU, specify a negative value.
+   If you want to run it on the GPU, please specify the GPU ID with `--gpu` or `-g` option (ex. `--gpu 0`).
 
 
 ## Acknowledgement
