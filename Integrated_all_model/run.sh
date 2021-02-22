@@ -9,7 +9,7 @@ myname=`basename $0`
 usage () {
   cat<<_EOU_
 $myname: Integrate eight models and perform inference
-Usage: $myname [-g gpuid] test_data.txt
+Usage: $myname [--gpu GPUID | -g GPUID] test_data.txt
 Options
     --gpu GPUID, -g GPUID    specify GPU ID (default: -1 (execute on CPU))
     --help, -h               show this message
