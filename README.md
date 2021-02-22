@@ -24,7 +24,7 @@ We developed following eight learning models for symbolic integration that were 
 - [Python](https://www.python.org/) 3.6.0+
 - [Chainer](https://github.com/chainer/chainer/) 4.0.0+
 - [NumPy](https://github.com/numpy/numpy) 1.12.1+
-- [CuPy](https://github.com/cupy/cupy) 1.0.0+ (if using gpu)
+- [CuPy](https://github.com/cupy/cupy) 1.0.0+ (if using GPU)
 - [NLTK](https://www.nltk.org/)
 - [Optuna](https://github.com/optuna/optuna/releases/tag/v1.3.0) 1.3.0
 
@@ -37,18 +37,33 @@ We developed following eight learning models for symbolic integration that were 
    % git clone git@gitlab.com:funalab/symbolicintegrationmodel.git
    ```
 
+2. Install requirements under virtualenv.
+   - For CPU
+     ```sh
+     % cd SymbolicIntegrationModel/
+     % python -m venv venv
+     % source ./venv/bin/activate
+     % pip install -r requirements-cpu.txt   # for CPU
+     ```
+
+   - For GPU
+     ```sh
+     % cd SymbolicIntegrationModel/
+     % python -m venv venv
+     % source ./venv/bin/activate
+     % pip install -r requirements-gpu.txt   # for GPU
+     ```
+
 2. Download learned model and dataset (5.3 GB).
 
    - On Linux:
      ```sh
-     % cd SymbolicIntegrationModel/
      % wget https://fun.bio.keio.ac.jp/software/SymbolicIntegrationModel/SymbolicIntegrationModel.zip
      % unzip SymbolicIntegrationModel.zip
      % rm SymbolicIntegrationModel.zip
      ```
    - On macOS:
      ```sh
-     % cd SymbolicIntegrationModel/
      % curl -O https://fun.bio.keio.ac.jp/software/SymbolicIntegrationModel/SymbolicIntegrationModel.zip
      % unzip SymbolicIntegrationModel.zip
      % rm SymbolicIntegrationModel.zip
@@ -56,46 +71,46 @@ We developed following eight learning models for symbolic integration that were 
 
 3. Inference on test dataset.
 
-   To run LSTM models, follow the commands below after change directory.   
+   To run LSTM models, follow the commands below after change directory.
 
    - LSTM string polish model
-     
+
      The best learned model for LSTM string polish model is `LSTM_string/model/LSTM_string_polish_best_model`.
      To verify the accuracy of the learned model using test data (10 functions) in `LSTM_string/dataset/LSTM_string_Polish_test_Integrand_first_10eq.txt`, run the following:
-   
+
      ```sh
      % cd LSTM_string/src
-     % python LSTM_string_polish_model.py --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_Polish_test_Integrand_first_10eq.txt --Primitive_dataset ../dataset/LSTM_string_Polish_test_Primitive_first_10eq.txt --study_name MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid --learned_model ../model/LSTM_string_polish_best_model [--gpu gpu]
+     % python LSTM_string_polish_model.py --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_Polish_test_Integrand_first_10eq.txt --Primitive_dataset ../dataset/LSTM_string_Polish_test_Primitive_first_10eq.txt --study_name MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid --learned_model ../model/LSTM_string_polish_best_model [--gpu id]
      ```
 
    - LSTM string IRPP model
-   
+
      The best learned model for LSTM string IRPP model is `LSTM_string/model/LSTM_string_IRPP_best_model`.
      To verify the accuracy of the learned model using test data (10 functions) in `LSTM_string/dataset/LSTM_string_IRPP_test_Integrand_first_10eq.txt`, run the following:
 
      ```sh
      % cd LSTM_string/src
-     % python LSTM_string_IRPP_model.py --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_IRPP_test_Integrand_first_10eq.txt --Primitive_dataset ../dataset/LSTM_string_IRPP_test_Primitive_first_10eq.txt --study_name MLP_cupy_MedianPruner_epoch30_integrand_reverse_polish_Primitive_polish_third_try_memory_edited_v102_continue_untilepoch200 --learned_model ../model/LSTM_string_IRPP_best_model [--gpu gpu]
+     % python LSTM_string_IRPP_model.py --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_IRPP_test_Integrand_first_10eq.txt --Primitive_dataset ../dataset/LSTM_string_IRPP_test_Primitive_first_10eq.txt --study_name MLP_cupy_MedianPruner_epoch30_integrand_reverse_polish_Primitive_polish_third_try_memory_edited_v102_continue_untilepoch200 --learned_model ../model/LSTM_string_IRPP_best_model [--gpu id]
      ```
 
    - LSTM subtree polish model
-   
+
      The best learned model for LSTM subtree polish model is `LSTM_subtree/model/LSTM_subtree_polish_best_model`.
      To verify the accuracy of the learned model using test data (10 functions) in `LSTM_subtree/dataset/LSTM_subtree_polish_test_Integrand_first_10eq.txt`, run the following:
 
      ```sh
      % cd LSTM_subtree/src
-     % python LSTM_subtree_model.py --token_dataset ../dataset/LSTM_subtree_polish_token.txt --Integrand_dataset ../dataset/LSTM_subtree_polish_test_Integrand_first_10eq.txt --Primitive_dataset ../dataset/LSTM_subtree_polish_test_Primitive_first_10eq.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_complete_correct_continue --learned_model ../model/LSTM_subtree_polish_best_model [--gpu gpu]
+     % python LSTM_subtree_model.py --token_dataset ../dataset/LSTM_subtree_polish_token.txt --Integrand_dataset ../dataset/LSTM_subtree_polish_test_Integrand_first_10eq.txt --Primitive_dataset ../dataset/LSTM_subtree_polish_test_Primitive_first_10eq.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_complete_correct_continue --learned_model ../model/LSTM_subtree_polish_best_model [--gpu id]
      ```
 
    - LSTM subtree IRPP model
-   
+
      The best learned model for LSTM subtree IRPP model is `LSTM_subtree/model/LSTM_subtree_IRPP_best_model`. 
      To verify the accuracy of the learned model using test data (10 functions) in `LSTM_subtree/dataset/LSTM_subtree_IRPP_test_Integrand_first_10eq.txt`, run the following:
 
      ```sh
      % cd LSTM_subtree/src
-     % python LSTM_subtree_model.py --token_dataset ../dataset/LSTM_subtree_IRPP_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_test_Integrand_first_10eq.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_test_Primitive_first_10eq.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue --learned_model ../model/LSTM_subtree_IRPP_best_model [--gpu gpu]
+     % python LSTM_subtree_model.py --token_dataset ../dataset/LSTM_subtree_IRPP_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_test_Integrand_first_10eq.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_test_Primitive_first_10eq.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue --learned_model ../model/LSTM_subtree_IRPP_best_model [--gpu id]
      ```
 
    The following list of options will be displayed by adding -h option to each script for LSTM models.
@@ -106,50 +121,50 @@ We developed following eight learning models for symbolic integration that were 
    --token_dataset                              : Specify dictionary of mathematical symbols used in Integrand and Primitive data (text file).
    --study_name                                 : Specify hyperparameter values from Optuna result (SQLite database).
    --learned_model                              : Specify learned model (npz file).
-   --gpu GPU, -g GPU                            : Specify GPU ID (negative value indicates CPU).
+   --gpu id, -g id                              : Specify GPU ID (negative value indicates CPU).
    ```
 
 
    To run Transformer models, follow the commands below after change directory. 
 
    - Transformer string polish model
-   
+
      The best learned model for Transformer string polish model is `Transformer_string/model/Transformer_string_polish_best_model`.
      To verify the accuracy of the learned model using test data (10 functions) in `Transformer_string/dataset/Transformer_string_polish_test_Integrand_first_10eq.txt`, run the following:
 
      ```sh
      % cd Transformer_string/src
-     % python Transformer_string_model.py --source ../dataset/Transformer_string_polish_test_Integrand_first_10eq.txt --target ../dataset/Transformer_string_polish_test_Primitive_first_10eq.txt --source_vocab_list ../dataset/Transformer_string_polish_Integrand_vocab.pickle --target_vocab_list ../dataset/Transformer_string_polish_Primitive_vocab.pickle --learned_model ../model/Transformer_string_polish_best_model [--gpu gpu]
+     % python Transformer_string_model.py --source ../dataset/Transformer_string_polish_test_Integrand_first_10eq.txt --target ../dataset/Transformer_string_polish_test_Primitive_first_10eq.txt --source_vocab_list ../dataset/Transformer_string_polish_Integrand_vocab.pickle --target_vocab_list ../dataset/Transformer_string_polish_Primitive_vocab.pickle --learned_model ../model/Transformer_string_polish_best_model [--gpu id]
      ```
 
    - Transformer string IRPP model
-   
+
      The best learned model for Transformer string IRPP model is `Transformer_string/model/Transformer_string_IRPP_best_model`.
      To verify the accuracy of the learned model using test data (10 functions) in `Transformer_string/dataset/Transformer_string_IRPP_test_Integrand_first_10eq.txt`, run the following:
  
      ```sh
      % cd Transformer_string/src
-     % python Transformer_string_model.py --source ../dataset/Transformer_string_IRPP_test_Integrand_first_10eq.txt --target ../dataset/Transformer_string_IRPP_test_Primitive_first_10eq.txt --source_vocab_list ../dataset/Transformer_string_IRPP_source_vocab.pickle --target_vocab_list ../dataset/Transformer_string_IRPP_target_vocab.pickle --learned_model ../model/Transformer_string_IRPP_best_model [--gpu gpu]
+     % python Transformer_string_model.py --source ../dataset/Transformer_string_IRPP_test_Integrand_first_10eq.txt --target ../dataset/Transformer_string_IRPP_test_Primitive_first_10eq.txt --source_vocab_list ../dataset/Transformer_string_IRPP_source_vocab.pickle --target_vocab_list ../dataset/Transformer_string_IRPP_target_vocab.pickle --learned_model ../model/Transformer_string_IRPP_best_model [--gpu id]
      ```
 
    - Transformer subtree polish model
-   
+
      The best learned model for Transformer subtree polish model is `/Transformer_subtree/model/Transformer_subtree_polish_best_model`.
      To verify the accuracy of the learned model using test data (10 functions) in `Transformer_subtree/dataset/Transformer_subtree_polish_test_Integrand_first_10eq.txt`,run the following:
 
      ```sh
      % cd Transformer_subtree/src
-     % python Transformer_subtree_model.py --source ../dataset/Transformer_subtree_polish_test_Integrand_first_10eq.txt --target ../dataset/Transformer_subtree_polish_test_Primitive_first_10eq.txt --source_vocab_list ../dataset/Transformer_subtree_polish_Integrand_vocab.pickle --target_vocab_list ../dataset/Transformer_subtree_polish_Primitive_vocab.pickle --learned_model ../model/Transformer_subtree_polish_best_model [--gpu gpu]
+     % python Transformer_subtree_model.py --source ../dataset/Transformer_subtree_polish_test_Integrand_first_10eq.txt --target ../dataset/Transformer_subtree_polish_test_Primitive_first_10eq.txt --source_vocab_list ../dataset/Transformer_subtree_polish_Integrand_vocab.pickle --target_vocab_list ../dataset/Transformer_subtree_polish_Primitive_vocab.pickle --learned_model ../model/Transformer_subtree_polish_best_model [--gpu id]
      ```
 
    - Transformer subtree IRPP model
-   
+
      The best learned model for Transformer subtree IRPP model is `Transformer_subtree/model/Transformer_subtree_IRPP_best_model`.
      To verify the accuracy of the learned model using test data (10 functions) in  `Transformer_subtree/dataset/Transformer_subtree_IRPP_test_Integrand_first_10eq.txt`,run the following:
 
      ```sh
      % cd Transformer_subtree/src
-     % python Transformer_subtree_model.py --source ../dataset/Transformer_subtree_IRPP_test_Integrand_first_10eq.txt  --target ../dataset/Transformer_subtree_IRPP_test_Primitive_first_10eq.txt --source_vocab_list ../dataset/Transformer_subtree_IRPP_Integrand_vocab.pickle --target_vocab_list ../dataset/Transformer_subtree_IRPP_Primitive_vocab.pickle --learned_model ../model/Transformer_subtree_IRPP_best_model [--gpu gpu]
+     % python Transformer_subtree_model.py --source ../dataset/Transformer_subtree_IRPP_test_Integrand_first_10eq.txt  --target ../dataset/Transformer_subtree_IRPP_test_Primitive_first_10eq.txt --source_vocab_list ../dataset/Transformer_subtree_IRPP_Integrand_vocab.pickle --target_vocab_list ../dataset/Transformer_subtree_IRPP_Primitive_vocab.pickle --learned_model ../model/Transformer_subtree_IRPP_best_model [--gpu id]
      ```
 
    The following list of options will be displayed by adding -h option to each script for Transformer models.
@@ -160,18 +175,18 @@ We developed following eight learning models for symbolic integration that were 
    --source_vocab_list                          : Specify dictionary of mathematical symbols used in Integrand data (pickle file).
    --target_vocab_list                          : Specify dictionary of mathematical symbols used in Primitive data (pickle file).
    --learned_model                              : Specify learned model (npz file).
-   --gpu GPU, -g GPU                            : Specify GPU ID (negative value indicates CPU).
+   --gpu id, -g id                              : Specify GPU ID (negative value indicates CPU).
    ```
 
    To integrate the above eight models and perform inference, run the following:
 
    ```sh
    % cd Integrated_all_model
-   % ./run.sh ../LSTM_string/dataset/LSTM_string_Polish_test_Integrand_first_10eq.txt [gpu]
+   % ./run.sh ../LSTM_string/dataset/LSTM_string_Polish_test_Integrand_first_10eq.txt [gpu id]
    ```
    Note the last positional argument of the command should be the GPU ID.
    If you want to run it on the CPU, specify a negative value.
-   
+
 
 ## Acknowledgement
 
