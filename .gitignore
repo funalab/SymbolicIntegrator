@@ -23,6 +23,7 @@ model
 models
 dataset
 *.txt
+!requirements.txt
 *.zip
 *.log
 *~
