@@ -23,7 +23,8 @@ model
 models
 dataset
 *.txt
-!requirements.txt
+!requirements-cpu.txt
+!requirements-gpu.txt
 *.zip
 *.log
 *~
