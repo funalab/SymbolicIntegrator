@@ -26,8 +26,8 @@ model
 models
 dataset
 *.txt
-!requirements-cpu.txt
-!requirements-gpu.txt
+!requirements.txt
+!conda-spec-file.txt
 *.zip
 *.log
 *~

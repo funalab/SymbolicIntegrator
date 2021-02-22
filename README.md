@@ -37,21 +37,20 @@ We developed following eight learning models for symbolic integration that were 
    % git clone git@gitlab.com:funalab/symbolicintegrationmodel.git
    ```
 
-2. Install requirements under virtualenv.
-   - For CPU
+2. Install requirements.
+   - CPU version
      ```sh
      % cd SymbolicIntegrationModel/
      % python -m venv venv
      % source ./venv/bin/activate
-     % pip install -r requirements-cpu.txt   # for CPU
+     % pip install -r requirements.txt
      ```
 
-   - For GPU
+   - GPU version (requires Anaconda)
      ```sh
      % cd SymbolicIntegrationModel/
-     % python -m venv venv
-     % source ./venv/bin/activate
-     % pip install -r requirements-gpu.txt   # for GPU
+     % conda create --name symbolic --file conda-spec-file.txt
+     % conda activate symbolic
      ```
 
 2. Download learned model and dataset (5.3 GB).
