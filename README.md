@@ -190,16 +190,25 @@ We developed following eight learning models for symbolic integration that were 
    To train LSTM models, follow the commands below after change directory.
 
    - LSTM string polish model
-   ```sh
-     % cd LSTM_string/src
-     % python LSTM_string_polish_train.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_Polish_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_string_Polish_train_valid_Primitive.txt --study_name MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid_new --learned_model ../model/LSTM_string_polish_best_model_new [--gpu id]
-   ```
+     ```sh
+       % cd LSTM_string/src
+       % python LSTM_string_polish_train.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_Polish_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_string_Polish_train_valid_Primitive.txt --study_name MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid_new --learned_model ../model/LSTM_string_polish_best_model_new [--gpu id]
+     ```
    - LSTM string IRPP model
-   ```sh
-     % cd LSTM_string/src
-     % python LSTM_string_IRPP_train.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_IRPP_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_string_IRPP_train_valid_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_integrand_reverse_polish_Primitive_polish_third_try_memory_edited_v102_continue_untilepoch200_new --learned_model ../model/LSTM_string_IRPP_best_model_new [--gpu id]
-  ```
-   
+     ```sh
+       % cd LSTM_string/src
+       % python LSTM_string_IRPP_train.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_IRPP_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_string_IRPP_train_valid_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_integrand_reverse_polish_Primitive_polish_third_try_memory_edited_v102_continue_untilepoch200_new --learned_model ../model/LSTM_string_IRPP_best_model_new [--gpu id]
+     ```
+   - LSTM subtree polish model
+     ```sh
+       % cd LSTM_subtree/src
+       % python LSTM_subtree_model.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_subtree_polish_token.txt --Integrand_dataset ../dataset/LSTM_subtree_polish_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_polish_train_valid_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_complete_correct_continue_new --learned_model ../model/LSTM_subtree_polish_best_model_new [--gpu id]
+     ```
+   - LSTM subtree IRPP model 
+     ```sh
+       % cd LSTM_subtree/src
+       % python LSTM_subtree_model.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_subtree_IRPP_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_train_valid_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue_new --learned_model ../model/LSTM_subtree_IRPP_best_model_new [--gpu id]
+     ```
 
 ## Acknowledgement
 
