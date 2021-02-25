@@ -31,6 +31,7 @@ dataset
 *.zip
 *.log
 *~
+*_new.db
 
 # my own README
 READ_ME_LSTM_string_polish.md
