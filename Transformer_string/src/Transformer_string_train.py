@@ -123,7 +123,7 @@ class CalculateBleu(chainer.training.Extension):
 def main():
     parser = argparse.ArgumentParser(
         description='Chainer example: convolutional seq2seq')
-    parser.add_argument('--k_fold_for_train_valid','-fold', type=int, default=0,
+    parser.add_argument('--k_fold_for_train_valid','-kfold', type=int, default=0,
                         help='fold number for train and validation')
     parser.add_argument('--batchsize', '-b', type=int, default=256,
                         help='Number of images in each mini-batch')

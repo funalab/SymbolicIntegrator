@@ -185,11 +185,11 @@ We developed following eight learning models for symbolic integration that were 
    ```
    If you want to run it on the GPU, please specify the GPU ID with `--gpu` or `-g` option (ex. `--gpu 0`).
 
-## Training
+4. How to train
 
-   To train LSTM models, follow the commands below after change directory.
+   To train LSTM models with performing cross-validation, follow the commands below after change directory.
 
-   - LSTM string polish model
+   - LSTM string polish model 
      ```sh
        % cd LSTM_string/src
        % python LSTM_string_polish_train.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_Polish_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_string_Polish_train_valid_Primitive.txt --study_name MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid_new --learned_model ../model/LSTM_string_polish_best_model_new [--gpu id]
@@ -202,13 +202,64 @@ We developed following eight learning models for symbolic integration that were 
    - LSTM subtree polish model
      ```sh
        % cd LSTM_subtree/src
-       % python LSTM_subtree_model.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_subtree_polish_token.txt --Integrand_dataset ../dataset/LSTM_subtree_polish_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_polish_train_valid_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_complete_correct_continue_new --learned_model ../model/LSTM_subtree_polish_best_model_new [--gpu id]
+       % python LSTM_subtree_polish_train.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_subtree_polish_token.txt --Integrand_dataset ../dataset/LSTM_subtree_polish_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_polish_train_valid_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_complete_correct_continue_new --learned_model ../model/LSTM_subtree_polish_best_model_new [--gpu id]
      ```
    - LSTM subtree IRPP model 
      ```sh
        % cd LSTM_subtree/src
-       % python LSTM_subtree_model.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_subtree_IRPP_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_train_valid_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue_new --learned_model ../model/LSTM_subtree_IRPP_best_model_new [--gpu id]
+       % python LSTM_subtree_IRPP_train.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_subtree_IRPP_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_train_valid_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue_new --learned_model ../model/LSTM_subtree_IRPP_best_model_new [--gpu id]
      ```
+
+     The following list of options will be displayed by adding -h option to each script for training LSTM models.
+
+   ```
+   --batchsize                                  : Specify batchsize (int).
+   --epoch                                      : Specify epoch (int).
+   --kfold                                      : Specify the fold number (an integral number from 0 to 9)
+   --Integrand_dataset                          : Specify Integrand data for training (text file).
+   --Primitive_dataset                          : Specify Primitive data for training (text file).
+   --token_dataset                              : Specify dictionary of mathematical symbols used in Integrand and Primitive data (text file).
+   --study_name                                 : Specify the arbitrary name of SQLite file for hyperparameter values from Optuna result (SQLite database).
+   --learned_model                              : Specify the arbitrary directory name for learned models and log file (npz file).
+   --gpu id, -g id                              : Specify GPU ID (negative value indicates CPU).
+   ```
+
+   To train Transformer models with performing cross-validation, follow the commands below after change directory.
+
+   - Transformer string polish model
+     ```sh
+     % cd Transformer_string/src
+     % python Transformer_string_train.py --batchsize 256 --epoch 600 -kfold 0 --source ../dataset/Transformer_string_Polish_train_valid_Integrand.txt --target ../dataset/Transformer_string_Polish_train_valid_Primitive.txt --out ../model/Transformer_string_polish_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
+     ```
+   - Transformer string IRPP model
+     ```sh
+     % cd Transformer_string/src
+     % python Transformer_string_train.py --batchsize 256 --epoch 600 -kfold 0 --source ../dataset/Transformer_string_IRPP_train_valid_Integrand.txt --target ../dataset/Transformer_string_IRPP_train_valid_Primitive.txt --out ../model/Transformer_string_IRPP_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
+     ```
+   - Transformer subtree polish model
+     ```sh
+     % cd Transformer_subtree/src
+     % python Transformer_subtree_train.py --batchsize 256 --epoch 300 -kfold 0 --source ../dataset/Transformer_subtree_polish_train_valid_Integrand.txt --target ../dataset/Transformer_subtree_polish_train_valid_Primitive.txt --out ../model/Transformer_subtree_polish_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
+     ```
+   - Transformer subtree IRPP model 
+     ```sh
+     % cd Transformer_subtree/src
+     % python Transformer_subtree_train.py --batchsize 256 --epoch 300 -kfold 0 --source ../dataset/Transformer_subtree_IRPP_train_valid_Integrand.txt --target ../dataset/Transformer_subtree_IRPP_train_valid_Primitive.txt --out ../model/Transformer_subtree_IRPP_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
+     ```
+
+   The following list of options will be displayed by adding -h option to each script for training Transformer models.
+
+   ```
+   --batchsize                                  : Specify batchsize (int).
+   --epoch                                      : Specify epoch (int).
+   --kfold                                      : Specify the fold number (an integral number from 0 to 9)
+   --source                                     : Specify Integrand data (text file).
+   --target                                     : Specify Primitive data (text file).
+   --out                                        : Specify directory name for traing log and best model 
+   --source_vocab                               : Specify maximum number of words in dictionary of mathematical symbols used in Integrand data (int).
+   --target_vocab                               : Specify maximum number of words in dictionary of mathematical symbols used in Primitive data (int).
+   --gpu id, -g id                              : Specify GPU ID (negative value indicates CPU).
+   ```
 
 ## Acknowledgement
 
