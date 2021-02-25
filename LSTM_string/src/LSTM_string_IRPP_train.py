@@ -303,9 +303,9 @@ def objective(trial):
                    trigger=trigger)
     
     trainer.extend(extensions.snapshot(filename='latest_snapshot'),trigger=(1, 'epoch'))
-    trainer.extend(
-        optuna.integration.ChainerPruningExtension(
-            trial, 'validation/main/loss', (PRUNER_INTERVAL, 'epoch')))
+    #trainer.extend(
+    #    optuna.integration.ChainerPruningExtension(
+    #        trial, 'validation/main/loss', (PRUNER_INTERVAL, 'epoch')))
                                         
     trainer.run()
     if GPU >= 0:
@@ -423,15 +423,13 @@ def main():
     integrand_dataset = args.Integrand_dataset
     primitive_dataset = args.Primitive_dataset
     STUDY_NAME = args.study_name
-    #'MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid'
     N_TRIALS = 1
-    global PRUNER_INTERVAL
-    PRUNER_INTERVAL = 20 
+    #global PRUNER_INTERVAL
+    #PRUNER_INTERVAL = 1 
     epochs = args.epoch
     batchsize = args.batchsize
     global MODEL_DIRECTORY
     MODEL_DIRECTORY = Path(args.learned_model+"_fold_"+str(args.kfold))
-    #Path('models/MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid')
     study = optuna.create_study(study_name = STUDY_NAME,storage=f"sqlite:///{STUDY_NAME}.db",
                                 load_if_exists=True, pruner=optuna.pruners.MedianPruner())
     study.optimize(objective, n_trials=N_TRIALS,timeout=162000)

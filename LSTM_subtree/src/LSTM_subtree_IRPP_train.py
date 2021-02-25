@@ -371,9 +371,9 @@ def objective(trial):
                    filename='best_loss_model_epoch_{.updater.epoch}'),\
                    trigger=trigger)
     trainer.extend(extensions.snapshot(filename='latest_snapshot'),trigger=(1, 'epoch'))
-    trainer.extend(
-        optuna.integration.ChainerPruningExtension(
-            trial, 'validation/main/loss', (PRUNER_INTERVAL, 'epoch')))
+    #trainer.extend(
+    #    optuna.integration.ChainerPruningExtension(
+    #        trial, 'validation/main/loss', (PRUNER_INTERVAL, 'epoch')))
                                         
     trainer.run()
     if GPU >= 0:
@@ -492,8 +492,8 @@ def main():
     primitive_dataset = args.Primitive_dataset
     STUDY_NAME = args.study_name
     N_TRIALS = 1
-    global PRUNER_INTERVAL
-    PRUNER_INTERVAL = 20 
+    #global PRUNER_INTERVAL
+    #PRUNER_INTERVAL = 1 
     epochs = args.epoch
     batchsize = args.batchsize
     global MODEL_DIRECTORY

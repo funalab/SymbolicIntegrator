@@ -303,9 +303,9 @@ def objective(trial):
                    trigger=trigger)
     
     trainer.extend(extensions.snapshot(filename='latest_snapshot'),trigger=(1, 'epoch'))
-    trainer.extend(
-        optuna.integration.ChainerPruningExtension(
-            trial, 'validation/main/loss', (PRUNER_INTERVAL, 'epoch')))
+    #trainer.extend(
+    #    optuna.integration.ChainerPruningExtension(
+    #        trial, 'validation/main/loss', (PRUNER_INTERVAL, 'epoch')))
                                         
     trainer.run()
     if GPU >= 0:
@@ -423,10 +423,9 @@ def main():
     integrand_dataset = args.Integrand_dataset
     primitive_dataset = args.Primitive_dataset
     STUDY_NAME = args.study_name
-    #'MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid'
     N_TRIALS = 1
-    global PRUNER_INTERVAL
-    PRUNER_INTERVAL = 20 
+    #global PRUNER_INTERVAL
+    #PRUNER_INTERVAL = 1
     epochs = args.epoch
     batchsize = args.batchsize
     global MODEL_DIRECTORY
