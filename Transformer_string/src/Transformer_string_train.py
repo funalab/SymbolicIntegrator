@@ -309,20 +309,20 @@ def main():
 
     def translate_one(source, target):
         words = preprocess.split_sentence(source)
-        print('# source : ' + ' '.join(words))
+        print('Integrand(Input): ' + ' '.join(words))
         x = model.xp.array(
             [source_ids.get(w, 1) for w in words], 'i')
         ys = model.translate([x], beam=5)[0]
         words = [target_words[y] for y in ys]
-        print('#  result : ' + ' '.join(words))
+        print('Primitive(Output): ' + ' '.join(words))
         result = ' '.join(words)
-        print('#  expect : ' + target)
+        print('Correct Answer: ' + target)
         if result == target:
             return 1
         else:
             return 0
 
-    @chainer.training.make_extension(trigger=(200, 'iteration'))
+    @chainer.training.make_extension(trigger=(1, 'epoch'))
     def translate(trainer):
         ''' オリジナルの英語からフランス語の場合のテストケース
         translate_one(
@@ -361,12 +361,12 @@ def main():
         trigger=(min(200, iter_per_epoch), 'iteration'))
 
     # Calculate BLEU every half epoch
-    if not args.no_bleu:
-        trainer.extend(
-            CalculateBleu(
-                model, test_data, 'val/main/bleu',
-                device=args.gpu, batch=args.batchsize // 4),
-            trigger=floor_step((iter_per_epoch // 2, 'iteration')))
+    #if not args.no_bleu:
+    #    trainer.extend(
+    #        CalculateBleu(
+    #            model, test_data, 'val/main/bleu',
+    #            device=args.gpu, batch=args.batchsize // 4),
+    #        trigger=floor_step((iter_per_epoch // 2, 'iteration')))
 
     # Log
     trainer.extend(extensions.LogReport(trigger=log_trigger),
