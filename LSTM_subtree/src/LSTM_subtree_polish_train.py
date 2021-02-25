@@ -402,7 +402,7 @@ def objective(trial):
 
         if predict == target:
             count += 1
-        print('- accuracy:',str(-(count/len(valid))))
+        #print('- accuracy:',str(-(count/len(valid))))
         index += 1
     return -(count/len(valid))
 
