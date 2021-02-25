@@ -255,7 +255,7 @@ We developed following eight learning models for symbolic integration that were 
    --kfold                                      : Specify the fold number (an integral number from 0 to 9)
    --source                                     : Specify Integrand data (text file).
    --target                                     : Specify Primitive data (text file).
-   --out                                        : Specify directory name for traing log and best model 
+   --out                                        : Specify the arbitrary directory name for learned models and log file
    --source_vocab                               : Specify maximum number of words in dictionary of mathematical symbols used in Integrand data (int).
    --target_vocab                               : Specify maximum number of words in dictionary of mathematical symbols used in Primitive data (int).
    --gpu id, -g id                              : Specify GPU ID (negative value indicates CPU).
