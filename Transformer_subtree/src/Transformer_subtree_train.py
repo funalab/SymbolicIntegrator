@@ -296,8 +296,8 @@ def main():
     
 
     # If you want to change a logging interval, change this number
-    log_trigger = (min(200, iter_per_epoch // 2), 'iteration')
-
+    #log_trigger = (min(200, iter_per_epoch // 2), 'iteration')
+    log_trigger = (1, 'epoch')
     def floor_step(trigger):
         floored = trigger[0] - trigger[0] % log_trigger[0]
         if floored <= 0:
@@ -306,6 +306,7 @@ def main():
 
     # Validation every half epoch
     eval_trigger = floor_step((iter_per_epoch // 2, 'iteration'))
+    eval_trigger = floor_step((1, 'epoch'))
     record_trigger = training.triggers.MinValueTrigger(
         'val/main/perp', eval_trigger)  ## ここを変えて回して見る
     
@@ -399,9 +400,10 @@ def main():
         print('exact_same_eq_accuracy:'+str(count_correct_eq/len(test_data))+'%')
 
     # Gereneration Test ここは要検討
-#    trainer.extend(
-#        translate,
-#        trigger=(min(200, iter_per_epoch), 'iteration'))
+    trainer.extend(
+        translate,
+        trigger=(1, 'epoch'))
+        #trigger=(min(200, iter_per_epoch), 'iteration'))
 
     # Calculate BLEU every half epoch
     #if not args.no_bleu:

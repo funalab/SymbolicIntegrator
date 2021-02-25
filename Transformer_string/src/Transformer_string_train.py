@@ -248,8 +248,8 @@ def main():
     #chainer.serializers.load_npz('./string_reverse_polish_Transformer_test_fold0_train_valid_fold'+str(k_fold_for_train_valid)+'_epoch300_continue/latest_snapshot', trainer)
 
     # If you want to change a logging interval, change this number
-    log_trigger = (min(200, iter_per_epoch // 2), 'iteration')
-
+    #log_trigger = (min(200, iter_per_epoch // 2), 'iteration')
+    log_trigger = (1,'epoch') 
     def floor_step(trigger):
         floored = trigger[0] - trigger[0] % log_trigger[0]
         if floored <= 0:
@@ -257,7 +257,8 @@ def main():
         return (floored, trigger[1])
 
     # Validation every half epoch
-    eval_trigger = floor_step((iter_per_epoch // 2, 'iteration'))
+    #eval_trigger = floor_step((iter_per_epoch // 2, 'iteration'))
+    eval_trigger = floor_step((1 , 'epoch'))  
     record_trigger = training.triggers.MinValueTrigger(
         'val/main/perp', eval_trigger)
     
@@ -358,7 +359,8 @@ def main():
     # Gereneration Test
     trainer.extend(
         translate,
-        trigger=(min(200, iter_per_epoch), 'iteration'))
+        trigger=(1, 'epoch'))
+        #trigger=(min(200, iter_per_epoch), 'iteration'))
 
     # Calculate BLEU every half epoch
     #if not args.no_bleu:
