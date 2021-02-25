@@ -400,9 +400,9 @@ def main():
         print('exact_same_eq_accuracy:'+str(count_correct_eq/len(test_data))+'%')
 
     # Gereneration Test ここは要検討
-    trainer.extend(
-        translate,
-        trigger=(1, 'epoch'))
+#    trainer.extend(
+#        translate,
+#        trigger=(1, 'epoch'))
         #trigger=(min(200, iter_per_epoch), 'iteration'))
 
     # Calculate BLEU every half epoch
