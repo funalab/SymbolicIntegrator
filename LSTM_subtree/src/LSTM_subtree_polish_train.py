@@ -360,7 +360,7 @@ def objective(trial):
     trainer.extend(
         chainer.training.extensions.Evaluator(valid_iter, eval_model, converter=convert, device=0))
 
-    log_report_extention = chainer.training.extensions.LogReport(trigger=(10,'epoch'),log_name=None)
+    log_report_extention = chainer.training.extensions.LogReport(trigger=(1,'epoch'),log_name=None)
     trainer.extend(log_report_extention)
     trainer.extend(
         chainer.training.extensions.PrintReport(['epoch', 'main/loss', 'validation/main/loss']))
