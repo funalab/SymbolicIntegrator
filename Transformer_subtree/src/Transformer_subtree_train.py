@@ -15,7 +15,7 @@ from chainer import training
 from chainer.training import extensions
 
 import preprocess
-import net
+import net_check_visualization_all_layer
 
 from subfuncs import VaswaniRule
 
@@ -258,7 +258,7 @@ def main():
     source_words = {i: w for w, i in source_ids.items()}
 
     # Define Model
-    model = net.Transformer(
+    model = net_check_visualization_all_layer.Transformer(
         args.layer,
         min(len(source_ids), len(source_words)),
         min(len(target_ids), len(target_words)),
@@ -363,7 +363,7 @@ def main():
         print('Integrand(Input): ' + ' '.join(words))
         x = model.xp.array(
             [source_ids.get(w, 1) for w in words], 'i')
-        ys = model.translate([x], beam=5)[0]
+        ys = model.translate([x], beam=False)[0]
         words = [target_words[y] for y in ys]
         print('Primitive(Output): ' + ' '.join(words))
         result = ' '.join(words)
@@ -390,6 +390,7 @@ def main():
         translate_one(source, target)
 
         count_correct_eq = 0
+        """
         for eq_num in range(len(test_data)):
             source, target = test_data[eq_num]
             source = ' '.join([source_words[i] for i in source])
@@ -398,11 +399,11 @@ def main():
         print('epoch:'+str(trainer.updater.epoch))
         print('iteration:'+str(trainer.updater.iteration))
         print('exact_same_eq_accuracy:'+str(count_correct_eq/len(test_data))+'%')
-
+        """
     # Gereneration Test ここは要検討
-#    trainer.extend(
-#        translate,
-#        trigger=(1, 'epoch'))
+    trainer.extend(
+        translate,
+        trigger=(1, 'epoch'))
         #trigger=(min(200, iter_per_epoch), 'iteration'))
 
     # Calculate BLEU every half epoch
