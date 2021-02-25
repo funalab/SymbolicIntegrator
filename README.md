@@ -192,22 +192,22 @@ We developed following eight learning models for symbolic integration that were 
    - LSTM string polish model 
      ```sh
        % cd LSTM_string/src
-       % python LSTM_string_polish_train.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_Polish_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_string_Polish_train_valid_Primitive.txt --study_name MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid_new --learned_model ../model/LSTM_string_polish_best_model_new [--gpu id]
+       % python LSTM_string_polish_train.py --batchsize 5 --epoch 2 --kfold 0 --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_Polish_train_valid_Integrand_first_20eq.txt --Primitive_dataset ../dataset/LSTM_string_Polish_train_valid_Primitive_first_20eq.txt --study_name MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid_new --learned_model ../model/LSTM_string_polish_best_model_new [--gpu id]
      ```
    - LSTM string IRPP model
      ```sh
        % cd LSTM_string/src
-       % python LSTM_string_IRPP_train.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_IRPP_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_string_IRPP_train_valid_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_integrand_reverse_polish_Primitive_polish_third_try_memory_edited_v102_continue_untilepoch200_new --learned_model ../model/LSTM_string_IRPP_best_model_new [--gpu id]
+       % python LSTM_string_IRPP_train.py --batchsize 5 --epoch 2 --kfold 0 --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_IRPP_train_valid_Integrand_first_20eq.txt --Primitive_dataset ../dataset/LSTM_string_IRPP_train_valid_Primitive_first_20eq.txt --study_name MLP_cupy_MedianPruner_epoch30_integrand_reverse_polish_Primitive_polish_third_try_memory_edited_v102_continue_untilepoch200_new --learned_model ../model/LSTM_string_IRPP_best_model_new [--gpu id]
      ```
    - LSTM subtree polish model
      ```sh
        % cd LSTM_subtree/src
-       % python LSTM_subtree_polish_train.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_subtree_polish_token.txt --Integrand_dataset ../dataset/LSTM_subtree_polish_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_polish_train_valid_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_complete_correct_continue_new --learned_model ../model/LSTM_subtree_polish_best_model_new [--gpu id]
+       % python LSTM_subtree_polish_train.py --batchsize 5 --epoch 2 --kfold 0 --token_dataset ../dataset/LSTM_subtree_polish_token.txt --Integrand_dataset ../dataset/LSTM_subtree_polish_train_valid_Integrand_first_20eq.txt --Primitive_dataset ../dataset/LSTM_subtree_polish_train_valid_Primitive_first_20eq.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_complete_correct_continue_new --learned_model ../model/LSTM_subtree_polish_best_model_new [--gpu id]
      ```
    - LSTM subtree IRPP model 
      ```sh
        % cd LSTM_subtree/src
-       % python LSTM_subtree_IRPP_train.py --batchsize 128 --epoch 200 --kfold 0 --token_dataset ../dataset/LSTM_subtree_IRPP_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_train_valid_Integrand.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_train_valid_Primitive.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue_new --learned_model ../model/LSTM_subtree_IRPP_best_model_new [--gpu id]
+       % python LSTM_subtree_IRPP_train.py --batchsize 5 --epoch 2 --kfold 0 --token_dataset ../dataset/LSTM_subtree_IRPP_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_train_valid_Integrand_first_20eq.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_train_valid_Primitive_first_20eq.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue_new --learned_model ../model/LSTM_subtree_IRPP_best_model_new [--gpu id]
      ```
 
      The following list of options will be displayed by adding -h option to each script for training LSTM models.
@@ -229,22 +229,22 @@ We developed following eight learning models for symbolic integration that were 
    - Transformer string polish model
      ```sh
      % cd Transformer_string/src
-     % python Transformer_string_train.py --batchsize 256 --epoch 600 -kfold 0 --source ../dataset/Transformer_string_Polish_train_valid_Integrand.txt --target ../dataset/Transformer_string_Polish_train_valid_Primitive.txt --out ../model/Transformer_string_polish_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
+     % python Transformer_string_train.py --batchsize 5 --epoch 2 -kfold 0 --source ../dataset/Transformer_string_polish_train_valid_Integrand_first_20eq.txt --target ../dataset/Transformer_string_polish_train_valid_Primitive_first_20eq.txt --out ../model/Transformer_string_polish_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
      ```
    - Transformer string IRPP model
      ```sh
      % cd Transformer_string/src
-     % python Transformer_string_train.py --batchsize 256 --epoch 600 -kfold 0 --source ../dataset/Transformer_string_IRPP_train_valid_Integrand.txt --target ../dataset/Transformer_string_IRPP_train_valid_Primitive.txt --out ../model/Transformer_string_IRPP_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
+     % python Transformer_string_train.py --batchsize 5 --epoch 2 -kfold 0 --source ../dataset/Transformer_string_IRPP_train_valid_Integrand_first_20eq.txt --target ../dataset/Transformer_string_IRPP_train_valid_Primitive_first_20eq.txt --out ../model/Transformer_string_IRPP_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
      ```
    - Transformer subtree polish model
      ```sh
      % cd Transformer_subtree/src
-     % python Transformer_subtree_train.py --batchsize 256 --epoch 300 -kfold 0 --source ../dataset/Transformer_subtree_polish_train_valid_Integrand.txt --target ../dataset/Transformer_subtree_polish_train_valid_Primitive.txt --out ../model/Transformer_subtree_polish_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
+     % python Transformer_subtree_train.py --batchsize 5 --epoch 2 -kfold 0 --source ../dataset/Transformer_subtree_polish_train_valid_Integrand_first_20eq.txt --target ../dataset/Transformer_subtree_polish_train_valid_Primitive_first_20eq.txt --out ../model/Transformer_subtree_polish_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
      ```
    - Transformer subtree IRPP model 
      ```sh
      % cd Transformer_subtree/src
-     % python Transformer_subtree_train.py --batchsize 256 --epoch 300 -kfold 0 --source ../dataset/Transformer_subtree_IRPP_train_valid_Integrand.txt --target ../dataset/Transformer_subtree_IRPP_train_valid_Primitive.txt --out ../model/Transformer_subtree_IRPP_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
+     % python Transformer_subtree_train.py --batchsize 5 --epoch 2 -kfold 0 --source ../dataset/Transformer_subtree_IRPP_train_valid_Integrand_first_20eq.txt --target ../dataset/Transformer_subtree_IRPP_train_valid_Primitive_first_20eq.txt --out ../model/Transformer_subtree_IRPP_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
      ```
 
    The following list of options will be displayed by adding -h option to each script for training Transformer models.
