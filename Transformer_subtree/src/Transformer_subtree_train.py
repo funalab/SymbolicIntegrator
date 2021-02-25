@@ -421,7 +421,7 @@ def main():
          'main/loss', 'val/main/loss',
          'main/perp', 'val/main/perp',
          'main/acc', 'val/main/acc',
-         'val/main/bleu',
+         #'val/main/bleu',
          'alpha',
          'elapsed_time']),
         trigger=log_trigger)
