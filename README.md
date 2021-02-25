@@ -187,7 +187,7 @@ We developed following eight learning models for symbolic integration that were 
 
 5. How to train
 
-   To train LSTM models with performing cross-validation, follow the commands below after change directory.
+   To train LSTM models with performing cross-validation, follow the commands below after change directory (GPU recommended).
 
    - LSTM string polish model 
 
@@ -232,7 +232,7 @@ We developed following eight learning models for symbolic integration that were 
    --gpu id, -g id                              : Specify GPU ID (negative value indicates CPU).
    ```
 
-   To train Transformer models with performing cross-validation, follow the commands below after change directory.
+   To train Transformer models with performing cross-validation, follow the commands below after change directory (GPU recommended).
 
    - Transformer string polish model
 
