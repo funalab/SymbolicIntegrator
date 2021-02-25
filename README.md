@@ -185,9 +185,9 @@ We developed following eight learning models for symbolic integration that were 
    ```
    If you want to run it on the GPU, please specify the GPU ID with `--gpu` or `-g` option (ex. `--gpu 0`).
 
-5. How to train
+5. How to train (GPU recommended)
 
-   To train LSTM models with performing cross-validation, follow the commands below after change directory (GPU recommended).
+   To train LSTM models with performing cross-validation, follow the commands below after change directory.
 
    - LSTM string polish model 
 
@@ -232,7 +232,7 @@ We developed following eight learning models for symbolic integration that were 
    --gpu id, -g id                              : Specify GPU ID (negative value indicates CPU).
    ```
 
-   To train Transformer models with performing cross-validation, follow the commands below after change directory (GPU recommended).
+   To train Transformer models with performing cross-validation, follow the commands below after change directory.
 
    - Transformer string polish model
 
