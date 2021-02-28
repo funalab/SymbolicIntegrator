@@ -19,6 +19,9 @@ import net_check_visualization_all_layer
 
 from subfuncs import VaswaniRule
 
+import warnings
+
+warnings.simplefilter('ignore')
 
 def seq2seq_pad_concat_convert(xy_batch, device, eos_id=0, bos_id=2):
     """
@@ -193,12 +196,12 @@ def main():
     parser.add_argument('--target', '-t', type=str,
                         default='europarl-v7.fr-en.fr',
                         help='Filename of train data for target language')
-    parser.add_argument('--source-valid', '-svalid', type=str,
-                        default='dev/newstest2013.en',
-                        help='Filename of validation data for source language')
-    parser.add_argument('--target-valid', '-tvalid', type=str,
-                        default='dev/newstest2013.fr',
-                        help='Filename of validation data for target language')
+    #parser.add_argument('--source-valid', '-svalid', type=str,
+    #                    default='dev/newstest2013.en',
+    #                    help='Filename of validation data for source language')
+    #parser.add_argument('--target-valid', '-tvalid', type=str,
+    #                    default='dev/newstest2013.fr',
+    #                    help='Filename of validation data for target language')
     parser.add_argument('--kfold','-kfold',type=int,
                         default=0,
                         help='k-fold num')
