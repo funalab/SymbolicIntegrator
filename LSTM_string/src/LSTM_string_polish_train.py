@@ -279,7 +279,7 @@ def objective(trial):
 
     optimizer = create_optimizer(trial,mlp)
     optimizer.setup(mlp)
-    updater = chainer.training.StandardUpdater(train_iter, optimizer, converter=convert, device=0)
+    updater = chainer.training.StandardUpdater(train_iter, optimizer, converter=convert, device=GPU)
     stop_trigger = chainer.training.triggers.EarlyStoppingTrigger(
         monitor='validation/main/loss', check_trigger=(300, 'epoch'),
         max_trigger=(args.epoch, 'epoch'))
@@ -290,7 +290,7 @@ def objective(trial):
     eval_model = mlp.copy()
 
     trainer.extend(
-        chainer.training.extensions.Evaluator(valid_iter, eval_model, converter=convert, device=0))
+        chainer.training.extensions.Evaluator(valid_iter, eval_model, converter=convert, device=GPU))
 
     log_report_extention = chainer.training.extensions.LogReport(trigger=(1,'epoch'),log_name=None)
     trainer.extend(log_report_extention)
