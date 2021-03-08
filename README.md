@@ -198,7 +198,7 @@ We developed following eight learning models for symbolic integration that were 
      ```
      The trained model will be generated as `LSTM_string/model/LSTM_string_polish_best_model_new_fold_0/model_0/best_loss_model_epoch_2`.
      
-    - LSTM string IRPP model
+   - LSTM string IRPP model
 
      To train LSTM string IRPP model using training dataset (20 functions) in `LSTM_string/dataset/LSTM_string_IRPP_train_valid_Integrand_first_20eq.txt`, run the following:
      ```sh
