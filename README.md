@@ -248,7 +248,7 @@ We developed following eight learning models for symbolic integration that were 
      % cd Transformer_string/src
      % python Transformer_string_train.py --batchsize 5 --epoch 2 -kfold 0 --source ../dataset/Transformer_string_polish_train_valid_Integrand_first_20eq.txt --target ../dataset/Transformer_string_polish_train_valid_Primitive_first_20eq.txt --out ../model/Transformer_string_polish_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
      ```
-     The trained model will be generated as `Transformer_string/model/Transformer_string_polish_best_model_new/best_model_valid_loss.npz`
+     The trained model will be generated as `Transformer_string/model/Transformer_string_polish_best_model_new/best_model_valid_loss.npz`.
 
    - Transformer string IRPP model
 
@@ -257,7 +257,7 @@ We developed following eight learning models for symbolic integration that were 
      % cd Transformer_string/src
      % python Transformer_string_train.py --batchsize 5 --epoch 2 -kfold 0 --source ../dataset/Transformer_string_IRPP_train_valid_Integrand_first_20eq.txt --target ../dataset/Transformer_string_IRPP_train_valid_Primitive_first_20eq.txt --out ../model/Transformer_string_IRPP_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
      ```
-     The trained model will be generated as `Transformer_string/model/Transformer_string_IRPP_best_model_new/best_model_valid_loss.npz`
+     The trained model will be generated as `Transformer_string/model/Transformer_string_IRPP_best_model_new/best_model_valid_loss.npz`.
 
    - Transformer subtree polish model
 
@@ -266,7 +266,7 @@ We developed following eight learning models for symbolic integration that were 
      % cd Transformer_subtree/src
      % python Transformer_subtree_train.py --batchsize 5 --epoch 2 -kfold 0 --source ../dataset/Transformer_subtree_polish_train_valid_Integrand_first_20eq.txt --target ../dataset/Transformer_subtree_polish_train_valid_Primitive_first_20eq.txt --out ../model/Transformer_subtree_polish_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
      ```
-     The trained model will be generated as `Transformer_subtree/model/Transformer_subtree_polish_best_model_new/best_model_valid_loss.npz`
+     The trained model will be generated as `Transformer_subtree/model/Transformer_subtree_polish_best_model_new/best_model_valid_loss.npz`.
 
    - Transformer subtree IRPP model
 
@@ -275,7 +275,7 @@ We developed following eight learning models for symbolic integration that were 
      % cd Transformer_subtree/src
      % python Transformer_subtree_train.py --batchsize 5 --epoch 2 -kfold 0 --source ../dataset/Transformer_subtree_IRPP_train_valid_Integrand_first_20eq.txt --target ../dataset/Transformer_subtree_IRPP_train_valid_Primitive_first_20eq.txt --out ../model/Transformer_subtree_IRPP_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
      ```
-     The trained model will be generated as `Transformer_subtree/model/Transformer_subtree_IRPP_best_model_new/best_model_valid_loss.npz`
+     The trained model will be generated as `Transformer_subtree/model/Transformer_subtree_IRPP_best_model_new/best_model_valid_loss.npz`.
 
    The following list of options will be displayed by adding -h option to each script for training Transformer models.
 
