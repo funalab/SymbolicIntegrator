@@ -18,7 +18,7 @@ We developed following eight learning models for symbolic integration that were 
 - Transformer subtree polish model
 - Transformer subtree IRPP model
 
-## Requirement
+## Requirements
 
 - [Python](https://www.python.org/) 3.6.0+
 - [Chainer](https://github.com/chainer/chainer/) 4.0.0+
