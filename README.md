@@ -196,13 +196,17 @@ We developed following eight learning models for symbolic integration that were 
      % cd LSTM_string/src
      % python LSTM_string_polish_train.py --batchsize 5 --epoch 2 --kfold 0 --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_Polish_train_valid_Integrand_first_20eq.txt --Primitive_dataset ../dataset/LSTM_string_Polish_train_valid_Primitive_first_20eq.txt --study_name MLP_cupy_successiveHalvingPruner_epoch30_complete_correct_2nd_try_cross_valid_new --learned_model ../model/LSTM_string_polish_best_model_new [--gpu id]
      ```
-   - LSTM string IRPP model
+     The trained model will be generated as `LSTM_string/model/LSTM_string_polish_best_model_new_fold_0/model_0/best_loss_model_epoch_2`.
+     
+    - LSTM string IRPP model
 
      To train LSTM string IRPP model using training dataset (20 functions) in `LSTM_string/dataset/LSTM_string_IRPP_train_valid_Integrand_first_20eq.txt`, run the following:
      ```sh
      % cd LSTM_string/src
      % python LSTM_string_IRPP_train.py --batchsize 5 --epoch 2 --kfold 0 --token_dataset ../dataset/LSTM_string_polish_token.txt --Integrand_dataset ../dataset/LSTM_string_IRPP_train_valid_Integrand_first_20eq.txt --Primitive_dataset ../dataset/LSTM_string_IRPP_train_valid_Primitive_first_20eq.txt --study_name MLP_cupy_MedianPruner_epoch30_integrand_reverse_polish_Primitive_polish_third_try_memory_edited_v102_continue_untilepoch200_new --learned_model ../model/LSTM_string_IRPP_best_model_new [--gpu id]
      ```
+     The trained model will be generated as `LSTM_string/model/LSTM_string_IRPP_best_model_new_fold_0/model_0/best_loss_model_epoch_2`.
+     
    - LSTM subtree polish model
 
      To train LSTM subtree polish model using training dataset (20 functions) in `LSTM_subtree/dataset/LSTM_subtree_polish_train_valid_Integrand_first_20eq.txt`, run the following:
@@ -210,6 +214,8 @@ We developed following eight learning models for symbolic integration that were 
      % cd LSTM_subtree/src
      % python LSTM_subtree_polish_train.py --batchsize 5 --epoch 2 --kfold 0 --token_dataset ../dataset/LSTM_subtree_polish_token.txt --Integrand_dataset ../dataset/LSTM_subtree_polish_train_valid_Integrand_first_20eq.txt --Primitive_dataset ../dataset/LSTM_subtree_polish_train_valid_Primitive_first_20eq.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_complete_correct_continue_new --learned_model ../model/LSTM_subtree_polish_best_model_new [--gpu id]
      ```
+     The trained model will be generated as `LSTM_subtree/model/LSTM_subtree_polish_best_model_new_fold_0/model_0/best_loss_model_epoch_2`.
+
    - LSTM subtree IRPP model
 
      To train LSTM subtree IRPP model using training dataset (20 functions) in `LSTM_subtree/dataset/LSTM_subtree_IRPP_train_valid_Integrand_first_20eq.txt`, run the following: 
@@ -217,7 +223,8 @@ We developed following eight learning models for symbolic integration that were 
      % cd LSTM_subtree/src
      % python LSTM_subtree_IRPP_train.py --batchsize 5 --epoch 2 --kfold 0 --token_dataset ../dataset/LSTM_subtree_IRPP_token.txt --Integrand_dataset ../dataset/LSTM_subtree_IRPP_train_valid_Integrand_first_20eq.txt --Primitive_dataset ../dataset/LSTM_subtree_IRPP_train_valid_Primitive_first_20eq.txt --study_name MLP_cupy_MedianPruner_epoch30_subtree_Integrand_reverse_polish_Primitive_polish_continue_new --learned_model ../model/LSTM_subtree_IRPP_best_model_new [--gpu id]
      ```
-
+     The trained model will be generated as `LSTM_subtree/model/LSTM_subtree_IRPP_best_model_new_fold_0/model_0/best_loss_model_epoch_2`.
+     
    The following list of options will be displayed by adding -h option to each script for training LSTM models.
 
    ```
@@ -241,6 +248,8 @@ We developed following eight learning models for symbolic integration that were 
      % cd Transformer_string/src
      % python Transformer_string_train.py --batchsize 5 --epoch 2 -kfold 0 --source ../dataset/Transformer_string_polish_train_valid_Integrand_first_20eq.txt --target ../dataset/Transformer_string_polish_train_valid_Primitive_first_20eq.txt --out ../model/Transformer_string_polish_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
      ```
+     The trained model will be generated as `Transformer_string/model/Transformer_string_polish_best_model_new/best_model_valid_loss.npz`
+
    - Transformer string IRPP model
 
      To train Transformer string IRPP model using traing dataset (20 functions) in `Transformer_string/dataset/Transformer_string_IRPP_train_valid_Integrand_first_20eq.txt`, run the following:
@@ -248,6 +257,8 @@ We developed following eight learning models for symbolic integration that were 
      % cd Transformer_string/src
      % python Transformer_string_train.py --batchsize 5 --epoch 2 -kfold 0 --source ../dataset/Transformer_string_IRPP_train_valid_Integrand_first_20eq.txt --target ../dataset/Transformer_string_IRPP_train_valid_Primitive_first_20eq.txt --out ../model/Transformer_string_IRPP_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
      ```
+     The trained model will be generated as `Transformer_string/model/Transformer_string_IRPP_best_model_new/best_model_valid_loss.npz`
+
    - Transformer subtree polish model
 
      To train Transformer subtree polish model using traing dataset (20 functions) in `Transformer_subtree/dataset/Transformer_subtree_polish_train_valid_Integrand_first_20eq.txt`, run the following:
@@ -255,6 +266,8 @@ We developed following eight learning models for symbolic integration that were 
      % cd Transformer_subtree/src
      % python Transformer_subtree_train.py --batchsize 5 --epoch 2 -kfold 0 --source ../dataset/Transformer_subtree_polish_train_valid_Integrand_first_20eq.txt --target ../dataset/Transformer_subtree_polish_train_valid_Primitive_first_20eq.txt --out ../model/Transformer_subtree_polish_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
      ```
+     The trained model will be generated as `Transformer_subtree/model/Transformer_subtree_polish_best_model_new/best_model_valid_loss.npz`
+
    - Transformer subtree IRPP model
 
      To train Transformer subtree IRPP model using traing dataset (20 functions) in `Transformer_subtree/dataset/Transformer_subtree_IRPP_train_valid_Integrand_first_20eq.txt`, run the following:
@@ -262,6 +275,7 @@ We developed following eight learning models for symbolic integration that were 
      % cd Transformer_subtree/src
      % python Transformer_subtree_train.py --batchsize 5 --epoch 2 -kfold 0 --source ../dataset/Transformer_subtree_IRPP_train_valid_Integrand_first_20eq.txt --target ../dataset/Transformer_subtree_IRPP_train_valid_Primitive_first_20eq.txt --out ../model/Transformer_subtree_IRPP_best_model_new --source-vocab 67 --target-vocab 67 [--gpu id]
      ```
+     The trained model will be generated as `Transformer_subtree/model/Transformer_subtree_IRPP_best_model_new/best_model_valid_loss.npz`
 
    The following list of options will be displayed by adding -h option to each script for training Transformer models.
 
