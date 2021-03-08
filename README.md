@@ -32,7 +32,7 @@ We have tested SymbolicIntegrator on the following environments.
   - macOS Catalina 10.15.7 (MacBookPro16,2)
   - CPU: Intel i7-1068NG7 (8) @ 2.30GHz
   - Memory: 32GB
-  - Python: 3.8.8
+  - Python: 3.6.3
 - GPU version
   - Ubuntu 18.04.5 LTS x86_64
   - CPU: Intel Xeon Silver 4114 (40) @ 3.000GHz
