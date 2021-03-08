@@ -1,4 +1,4 @@
-# Symbolic Integration Model 
+# SymbolicIntegrator
 
 This is the code for Symbolic Integration by integrating learning models with different strengths and weaknesses.
 This project is carried out by [Funahashi Lab. at Keio University](https://fun.bio.keio.ac.jp/).
@@ -18,7 +18,6 @@ We developed following eight learning models for symbolic integration that were 
 - Transformer subtree polish model
 - Transformer subtree IRPP model
 
-
 ## Requirement
 
 - [Python](https://www.python.org/) 3.6.0+
@@ -28,6 +27,18 @@ We developed following eight learning models for symbolic integration that were 
 - [NLTK](https://www.nltk.org/)
 - [Optuna](https://github.com/optuna/optuna/releases/tag/v1.3.0) 1.3.0
 
+We have tested SymbolicIntegrator on the following environments.
+- CPU version
+  - macOS Catalina 10.15.7 (MacBookPro16,2)
+  - CPU: Intel i7-1068NG7 (8) @ 2.30GHz
+  - Memory: 32GB
+  - Python: 3.8.8
+- GPU version
+  - Ubuntu 18.04.5 LTS x86_64
+  - CPU: Intel Xeon Silver 4114 (40) @ 3.000GHz
+  - GPU: NVIDIA Tesla V100 PCIe 32GB
+  - Memory: 96GB
+  - Python: 3.7.6 (conda 4.9.2)
 
 ## QuickStart
 
