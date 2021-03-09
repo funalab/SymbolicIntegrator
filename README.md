@@ -45,7 +45,7 @@ We have tested SymbolicIntegrator on the following environments.
 1. Download this repository by `git clone`.
 
    ```sh
-   % git clone git@gitlab.com:funalab/symbolicintegrationmodel.git
+   % git clone https://github.com/funalab/SymbolicIntegrator.git
    ```
 
 2. Install requirements.
