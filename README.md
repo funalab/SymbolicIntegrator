@@ -302,6 +302,12 @@ We have tested SymbolicIntegrator on the following environments.
    --gpu id, -g id                              : Specify GPU ID (negative value indicates CPU).
    ```
 
+## Authors
+
+- [Hazumi Kubota](https://github.com/bolleta)
+- [Yuta Tokuoka](https://github.com/tokkuman)
+- [Akira Funahashi](https://github.com/funasoul)
+
 ## Acknowledgement
 
 The development of this algorithm was funded by Japan Science and Technology Agency CREST grant (Grant Number: JPMJCR2011) to [Akira Funahashi](https://github.com/funasoul).
