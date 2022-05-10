@@ -1,6 +1,6 @@
 # SymbolicIntegrator
 
-This is the code for Symbolic Integration by integrating learning models with different strengths and weaknesses.
+This is the code for [Symbolic Integration by integrating learning models with different strengths and weaknesses](https://doi.org/10.1109/ACCESS.2022.3171329).
 This project is carried out by [Funahashi Lab. at Keio University](https://fun.bio.keio.ac.jp/).
 
 ![symbolic integration](https://raw.githubusercontent.com/funalab/SymbolicIntegrator/images/image1.png)
